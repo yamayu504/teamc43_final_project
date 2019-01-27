@@ -51,4 +51,4 @@ production:
   <<: *default
   database: teamc43_final_project_production
   username: teamc43_final_project
-  password: <%= ENV['TEAMC43_FINAL_PROJECT_DATABASE_PASSWORD'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
