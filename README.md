@@ -32,15 +32,15 @@
 |product_name|string|index: true, null: false|
 |description|text|null: false|
 |size|integer|null: false|
-|brand_id|reference||
+|brand_id|reference|foreign_key: true|
 |condition|integer|null: false|
 |shipping_fee|integer|null: false|
 |shipping_method|integer|null: false|
 |area|integer|null: false|
 |shipping_day|integer|null: false|
 |price|integer|null: false|
-|user_id|reference||
-|buyer_id|reference||
+|user_id|reference|foreign_key: true|
+|buyer_id|reference|foreign_key: true|
 |release|integer||
 |sold_out|integer||
 
@@ -57,7 +57,7 @@
 |image2|integer||
 |image3|integer||
 |image4|integer||
-|product_id|reference||
+|product_id|reference|foreign_key: true|
 
 ### Association
 - belongs_to :product
@@ -66,8 +66,8 @@
 
 |column|Type|Options|
 |------|----|-------|
-|product_id|reference||
-|user_id|reference||
+|product_id|reference|foreign_key: true|
+|user_id|reference|foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -77,7 +77,7 @@
 
 |column|Type|Options|
 |------|----|-------|
-|brand_name|string||
+|brand_name|string|unique: true|
 |brand_name_cap|string|
 |brand_group_name|string|
 
