@@ -14,7 +14,7 @@
 |prefecture|integer|null: false|
 |cities|string|null: false|
 |address|string|null: false|
-|building_name|strinhg||
+|building_name|string||
 |birth_year|integer|null: false|
 |birth_month|integer|null: false|
 |birth_day|integer|null: false|
