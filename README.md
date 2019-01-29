@@ -56,6 +56,7 @@
 - has_many :likes
 - has_one :product_images
 - has_many :images, through:product_images
+- has_one :reviews
 - belongs_to :user
 - belongs_to :bland
 - belongs_to :category
