@@ -139,7 +139,20 @@
 - has_many :category_sizes
 - has_many :categories, through:category_sizes
 
+## reviewsテーブル
 
+|Column|Tipe|Options|
+|------|----|-------|
+|seller_id|integer||
+|buyer_id|integer||
+|seller_review|string||
+|buyer_review|string||
+|seller_fb|integer||
+|buyer_fb|integer||
+|product_id|reference|foreign_key: true|
+
+### Association
+-belongs_to :product
 
 
 
