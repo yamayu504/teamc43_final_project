@@ -20,7 +20,6 @@
 |profile|text||
 
 ### Association
-- has_many :products
 - has_many :likes
 - has_many :liked_products, class_name: "Product", through:likes
 - has_many :sell_products, class_name: "Product", foreign_key: 'seller_id'
@@ -36,7 +35,7 @@
 |size|integer|null: false|
 |brand_id|reference|foreign_key: true|
 |condition|integer|null: false|
-|shipping_fee|integer|null: false|
+|select_shipping_fee|integer|null: false|
 |shipping_method|integer|null: false|
 |area|integer|null: false|
 |shipping_date|integer|null: false|
@@ -44,7 +43,7 @@
 |seller_id|reference|foreign_key: true|
 |buyer_id|reference|foreign_key: true|
 |for_sale|integer||
-|sold_out|integer||
+|deal|integer||
 |category_id|reference|foreign_key: true|
 
 * shipping_feehは出品者負担か購入者負担かを示すカラム
@@ -68,18 +67,18 @@
 |Column|Type|Options|
 |------|----|-------|
 |product_id|reference|foreign_key: true|
-|image_id|reference|foreign_key: true|
+|p_image_id|reference|foreign_key: true|
 
 ### Association
 - belongs_to :product
-- belongs_to :image
+- belongs_to :p_image
 
 
-## imagesテーブル
+## p_imagesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|image_url|string||
+|image|string||
 
 ### Association
 - has_one :product_images
