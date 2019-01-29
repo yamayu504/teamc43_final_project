@@ -4,32 +4,34 @@
 |------|----|-------|
 |nickname|string|null: false|
 |email|string|null: false, unique: true|
-|password|integer|null: false|
-|phone_number|integer|null: false, unique: true|
+|password|string|null: false|
+|phone_number|string|null: false, unique: true|
 |last_name|string|null: false|
 |first_name|string|null: false|
 |last_name_kana|string|null: false|
 |first_name_kana|string|null: false|
-|postal_code|integer||
+|postal_code|string||
 |prefecture|integer|null: false|
 |cities|string|null: false|
 |address|string|null: false|
 |building_name|string||
-|birth_year|integer|null: false|
-|birth_month|integer|null: false|
-|birth_day|integer|null: false|
-|icon_image|integer||
+|birthday|datetime|null: false|
+|icon_image|string||
 |profile|text||
 
 ### Association
 - has_many :products
 - has_many :likes
+- has_many :liked_products, class_name: "Product", through:likes
+- has_many :sell_products, class_name: "Product", foreign_key: 'seller_id'
+- has_many :buy_products, class_name: "Product", foreign_key: 'buyer_id'
+
 
 ## productsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|product_name|string|index: true, null: false|
+|name|string|index: true, null: false|
 |description|text|null: false|
 |size|integer|null: false|
 |brand_id|reference|foreign_key: true|
@@ -37,30 +39,52 @@
 |shipping_fee|integer|null: false|
 |shipping_method|integer|null: false|
 |area|integer|null: false|
-|shipping_day|integer|null: false|
+|shipping_date|integer|null: false|
 |price|integer|null: false|
-|user_id|reference|foreign_key: true|
+|seller_id|reference|foreign_key: true|
 |buyer_id|reference|foreign_key: true|
-|release|integer||
+|for_sale|integer||
 |sold_out|integer||
+|category_id|reference|foreign_key: true|
+
+* shipping_feehは出品者負担か購入者負担かを示すカラム
+* shipping_dateは発送するまでの目安日数（１〜２日、３〜４日）を表すカラム
+* for_saleは販売中かどうかを示すカラム
+* sold_outは売り切れたかどうかを示すカラム
+* for_sale,sold_outを作ることで販売、出品停止、取引中、売切れを表現
 
 ### Association
 - has_many :likes
-- has_one :images
+- has_one :product_images
+- has_many :images, through:product_images
 - belongs_to :user
 - belongs_to :bland
+- belongs_to :category
+- belongs_to :seller, class_name: "User"
+- belongs_to :buyer, class_name: "User"
 
-## imagesテーブル
+
+## product_imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image1|integer|null: false|
-|image2|integer||
-|image3|integer||
-|image4|integer||
 |product_id|reference|foreign_key: true|
+|image_id|reference|foreign_key: true|
 
 ### Association
 - belongs_to :product
+- belongs_to :image
+
+
+## imagesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|image_url|string||
+
+### Association
+- has_one :product_images
+- has_one :product, through:product_images
+
 
 ## likesテーブル
 
@@ -77,9 +101,50 @@
 
 |column|Type|Options|
 |------|----|-------|
-|brand_name|string|unique: true|
-|brand_name_cap|string|
-|brand_group_name|string|
+|name|string|unique: true|
+|group_name|string||
+|name_initial|string||
 
 ### Association
 - has_many :products
+
+## categoriesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|unique: true, null: false|
+|parent_id|integer||
+
+### Association
+- has_many :products
+- has_many :sizes, through:category_sizes
+
+## category_sizesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|category_id|reference|foreign_key: true|
+|size_id|reference|foreign_key:true|
+
+### Association
+- belongs_to :category
+- belongs_to :size
+
+## sizesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|size|string||
+
+### Association
+- has_many :category_sizes
+- has_many :categories, through:category_sizes
+
+
+
+
+
+
+
+
+
