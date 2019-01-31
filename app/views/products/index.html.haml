@@ -1,1 +1,16 @@
-%p hellow world
+.product__slider
+  #slider
+    %div.slider__image
+      = image_tag "merukari_test.png", alt:"test"
+    %div.slider__image
+      = image_tag "merukari_test.png", alt:"test"
+    %div.slider__image
+      = image_tag "merukari_test.png", alt:"test"
+.product__container
+  .product__container__category
+    %h1 ピックアップカテゴリー
+    = render "products/one_category"
+    = render "products/one_category"
+  .product__container__category.pickedup
+    %h1 ピックアップブランドー
+    = render "products/one_category"
