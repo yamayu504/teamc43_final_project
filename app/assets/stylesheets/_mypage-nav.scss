@@ -9,6 +9,11 @@
       display: block;
       padding: 16px;
       background: white;
+      i{
+        position: absolute;
+        top: 50%;
+        right: 16px;
+      }
     }
     &__item:hover{
       opacity: 0.7;
