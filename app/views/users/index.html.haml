@@ -1,18 +1,10 @@
-.mypage-wrapper.clearfix
+.mypage-header
+= render "products/product_header"
 
-  .mypage-content
-    %section.mypage-user-icon
-      .mypage-user-icon__minibox
-        %a{href: ""}
-        %img.icon-img{src:"/assets/member_photo_noimage.png"}
-        %h2 userのnickname
-        .mypage-number
-          %p
-            評価
-            %span 0
-          %p.right-p
-            出品数
-            %span 0
+.mypage-wrapper.clearfix
+  .mypage-main
+    =render "users/mypage-user-icon"
+
     %section.mypage-tab-container-notification-todo
       %input#tab-notification{checked: "checked", name: "tab_item", type: "radio"}/
       %label.tab_item{for: "tab-notification"} お知らせ

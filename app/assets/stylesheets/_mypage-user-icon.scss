@@ -11,7 +11,7 @@
     left: 0;
     right: 0;
     color: #333;
-    a{
+    &__link{
       display: block;
       position: absolute;
       top: 0;
@@ -19,29 +19,29 @@
       height: 100%;
       width: 100%;
     }
-    .icon-img{
+    &__icon-img{
       overflow: hidden;
       width: 60px;
       height: 60px;
       border-radius: 50%;
     }
-    h2{
+    &__name{
       margin: 8px 0 0;
       font-weight: bold;
       font-size: 14px;
       line-height: 1.4;
     }
-    .mypage-number{
+    &__number{
       margin: 8px 0 0;
       display: block;
-      p{
+      &__text{
         display: inline-block;
-        span{
+        &__num{
           font-weight: bold;
           margin: 0 0 0 8px;
         }
       }
-      .right-p{
+      &__text--right{
         margin: 0 0 0 16px;
       }
     }
