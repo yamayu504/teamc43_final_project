@@ -43,9 +43,37 @@
           %a{href: "",class: "mypage-go-list"}
             一覧を見る
 
-    %section.mypage-tab-container
-    / サイドバーfontawesome使って右矢印作る
+    %section.mypage-tab-container-product
+      %h2 購入した商品
+      %input#tab-active{checked: "checked", name: "tab_product", type: "radio"}/
+      %label.tab_product{for: "tab-active"} 取引中
+      %input#tab-old{checked: "checked", name: "tab_product", type: "radio"}/
+      %label.tab_product{for: "tab-old"} 過去の取引
+      %ul#mypage-tab-active.tab-content__list
+        %li.mypage-item
+          %a{href: "",class: "mypage-item-link"}
+          %img{src: "assets/mypage/custom-banner-icon.png"}
+          .mypage-item-body
+            .mypage-item-body__text
+              「メルカリ」を購入しました。受取評価してください
+            .status 受取評価待ち
+        %li
+          %a{href: "",class: "mypage-go-list"}
+            一覧を見る
+      %ul#mypage-tab-old.tab-content__list
+        %li
+          %a{href: "",class: "mypage-item-link"}
+          %img{src: "assets/mypage/custom-banner-icon.png"}
+          .mypage-item-body
+            .mypage-item-body__text
+              龍角散さんから「メルカリのアイコン」が発送されました。届いたら内容を確認して、受け取り評価をして下さい
+            %time
+              %p ５日前
+        %li
+          %a{href: "",class: "mypage-go-list"}
+            一覧を見る
 
+    / サイドバーfontawesome使って右矢印作る
   .mypage-side
     %nav.mypage-nav
       %ul.mypage-nav__list
