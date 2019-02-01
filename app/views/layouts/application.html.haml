@@ -8,5 +8,12 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     /awsomefont
     %link{rel: "stylesheet", href: "https://use.fontawesome.com/releases/v5.7.0/css/all.css", integrity: "sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ", crossorigin:"anonymous"}
+    / /slicker
+    %script{type:"text/javascript", src:"//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"}
+    %link{rel:"stylesheet",type:"text/css", href:"//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css"}
+    %link{rel:"stylesheet", type:"text/css", href:"//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css"}
   %body
+    = render "products/product_header"
     = yield
+    = render "products/product_footer"
+
