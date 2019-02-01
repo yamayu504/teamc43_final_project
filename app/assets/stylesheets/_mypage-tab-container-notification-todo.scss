@@ -1,0 +1,69 @@
+.mypage-tab-container-notification-todo{
+  margin: 0;
+  background: white;
+  .tab_item{
+    width: 50%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 72px;
+    background: rgba(238, 238, 238, 1);
+    display: block;
+    float: left;
+    transition: all 0.2s ease;
+  }
+  .tab_item:hover{
+    opacity: 0.7;
+  }
+  input[name="tab_item"]{
+    display: none;
+  }
+  .tab-content__list{
+    display: none;
+    clear: both;
+    overflow: hidden;
+    li{
+      min-height:70px;
+      padding: 16px;
+      border-bottom: 1px solid #eee;
+      position: relative;
+      a:hover{
+        opacity: 0.75;
+        background: rgba(238, 238, 238, 0.5);
+      }
+      .mypage-item-link{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height:100%;
+        width: 100%;
+      }
+      .mypage-go-list{
+        display:block;
+        margin: 0 auto;
+        height: 56px;
+        text-align: center;
+        line-height: 56px;
+        color: black;
+        background: #eee;
+        text-decoration: none;
+      }
+      img{
+        float: left;
+        height: 48px;
+        width: 48px;
+      }
+      .mypage-item-body{
+        margin: 0 40px 0 68px;
+      }
+    }
+  }
+  #tab-notification:checked ~ #mypage-tab-notification,
+  #tab-todo:checked ~ #mypage-tab-todo{
+    display: block;
+  }
+  input:checked + .tab_item {
+    background-color: white;
+    border-top: 2px solid #ea352d;
+  }
+}

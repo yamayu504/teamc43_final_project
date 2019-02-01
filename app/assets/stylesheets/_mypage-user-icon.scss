@@ -1,0 +1,52 @@
+.mypage-user-icon{
+  height: 200px;
+  position: relative;
+  background-image: url('userbg.jpg');
+  background-size: cover;
+  text-align: center;
+  &__minibox{
+    display: block;
+    position: absolute;
+    top:25%;
+    left: 0;
+    right: 0;
+    color: #333;
+    a{
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+    }
+    .icon-img{
+      overflow: hidden;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+    }
+    h2{
+      margin: 8px 0 0;
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    .mypage-number{
+      margin: 8px 0 0;
+      display: block;
+      p{
+        display: inline-block;
+        span{
+          font-weight: bold;
+          margin: 0 0 0 8px;
+        }
+      }
+      .right-p{
+        margin: 0 0 0 16px;
+      }
+    }
+  }
+  &__minibox:hover{
+    opacity: 0.75;
+  }
+}
