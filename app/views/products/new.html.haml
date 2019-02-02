@@ -1,0 +1,126 @@
+.product__sell
+  .product__sell__header
+    .product__sell__header__logo
+      = link_to "#" do
+        = image_tag "products/logo.svg"
+  .product__sell__form
+    = form_for @product do |f|
+      .product__sell__form__title
+        %h1 商品の情報を入力
+      .product__sell__form__images
+        .product__sell__form__images__label
+          %label.form__label
+            出品画像
+            %span.form__require
+              必須
+          %p 最大10枚までアップロードできます
+        .product__sell__form__images__container
+          / サーバサイド実装時に合わせて実装
+          / .product__sell__form__images__container__upload
+          /   %ul
+          /     %li
+          .product__sell__form__images__container__guide
+            %h5
+              ドラッグ&ドロップ<br>またはクリックしてファイルをアップロード
+            = f.file_field "product[images][]", placeholder: "ドラッグアンドドロップ\nまたはクリックしてファイルをアップロード"
+      .product__sell__form__sellcontent
+        .product__sell__form__sellcontent__name
+          .product__sell__form__sellname__name__lavel
+            %label.form__label
+              商品名
+              %span.form__require
+                必須
+          = f.text_field "name", placeholder: "商品名（必須40文字まで）", id: "product_name", class: "input__default"
+        .product__sell__form__sellcontent__explain
+          .product__sell__form__sellcontent__explain__head__label
+            %label.form__label
+              商品の説明
+              %span.form__require
+                必須
+          = f.text_area "name", placeholder: "",id: "product_explain", class: "textarea-default"
+        .product__sell__form__sellcontent__detail
+          %h5 商品の詳細
+          .product__sell__form__sellcontent__detail__dropdown
+            .product__sell__form__sellcontent__detail__dropdown__category
+              %label.form__label
+                カテゴリー
+                %span.form__require
+                  必須
+              = f.select :category_id, @choices, {selected: 0}, {class: "select-default"}
+            / カテゴリー実装時に実装
+            /     .product__sell__form__sellcontent__detail__dropdown__category__2
+            /       = f.select "category_id", placeholder: "---"
+            /         .product__sell__form__sellcontent__detail__dropdown__category__3
+            /           = f.select "category_id", placeholder: "---"
+            /         .product__sell__form__sellcontent__detail__dropdown__category__size
+            /           = f.select "product[size_id]", placeholder: "---"
+            /         .product__sell__form__sellcontent__detail__dropdown__category__brand
+            /           = f.text_field "brand_id", placeholder: "---"
+            .product__sell__form__sellcontent__detail__dropdown__condition
+              %label.form__label
+                商品の状態
+                %span.form__require
+                  必須
+              = f.select :condition , @choices, {selected: 0}, {class: "select-default"}
+        .product__sell__form__sellcontent__delivery
+          %h5 発送について
+          .product__sell__form__sellcontent__delivery__dropdown
+            .product__sell__form__sellcontent__delivery__dropdown__shippingfee
+              %label.form__label
+                発送料の負担
+                %span.form__require
+                  必須
+              = f.select "select_shipping_fee", @choices, {selected: 0}, {class: "select-default"}
+            .product__sell__form__sellcontent__delivery__dropdown__shippingarea
+              %label.form__label
+                発送元の地域
+                %span.form__require
+                  必須
+              = f.select "area", @choices, {selected: 0}, {class: "select-default"}
+            .product__sell__form__sellcontent__delivery__dropdown__shippingdate
+              %label.form__label
+                発送までの時間
+                %span.form__require
+                  必須
+              = f.select "shipping_date", @choices,{selected: 0}, {class: "select-default"}
+        .product__sell__form__sellcontent__price
+          %h5 販売価格(300~9,999,999)
+          .product__sell__form__sellcontent__price__form
+            %ul.product__sell__form__sellcontent__price__form
+              %li
+                %label.form__label
+                  価格
+                  %span.form__require
+                    必須
+                .price__form__right
+                  %p ¥
+                  = f.text_field "price", placeholder: "例）300",class: "input__default"
+              %li.border__top
+                .product__sell__form__sellcontent__price__form__commitionleft
+                  販売手数料(10%)
+                .product__sell__form__sellcontent__price__form__commitionright
+                  %span -
+              %li.border__top
+                .product__sell__form__sellcontent__price__form__totalleft
+                  販売利益
+                .product__sell__form__sellcontent__price__form__totalright
+                  %span -
+        .product__sell__form__sellcontent__submit
+          %h5 禁止されている出品、行為を必ずご確認ください。またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。また、出品をもちまして加盟店規約に同意したことになります。
+          .product__sell__form__sellcontent__submit__done
+            = f.submit class: 'btn-default sell__product__done', disable_with: "Save", value:"出品する"
+          .product__sell__form__sellcontent__submit__back
+            = link_to "もどる", root_path,class: "btn-default"
+  .product__sell__footer
+    .product__sell__footer__nav
+      %ul
+        %li
+          = link_to "プライバシーポリシー", "#"
+        %li
+          = link_to "メルカリ利用規約", "#"
+        %li
+          = link_to "特定商取引に関する表記", "#"
+    .product__sell__footer__copyright
+      = link_to "#" do
+        = image_tag "products/logo-gray.svg", id: "gray_logo-footer"
+      %p © 2019 Mercari
