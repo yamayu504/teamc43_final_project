@@ -158,66 +158,66 @@
             float: right;
             width: 340px;
             margin: 0;
-            ul.product__sell__form__sellcontent__price__form{
-              li{
-                height:48px;
-                padding-bottom:24px;
-                margin-top:8px;
-              label{
-                width:50%;
-                float:left;
-                line-height:48px;
-                vertical-align: middle;
-              }
-              .price__form__right{
+            &__right{
                 float: right;
                 width: 50%;
                 margin: 0;
                 font-size:0.7em;
                 font-color:black;
+            }
+            &__commitionleft{
+              width:50%;
+              float:left;
+              line-height:48px;
+              vertical-align: middle;
+              }
+            &__commitionright{
+              float:right;
+              display:inline-block;
+              vertical-align: middle;
+              line-height:48px;
+            }
+            &__totalleft{
+              width:50%;
+              float:left;
+              line-height:48px;
+              vertical-align: middle;
+              font-weight: bold;
+              font-size:16px;
+            }
+            &__totalright{
+              float:right;
+              display:inline-block;
+              vertical-align: middle;
+              line-height:48px;
+              font-weight: bold;
+              font-size:34px;
+             }
+            }
+            ul{
+              li{
+                height:48px;
+                padding-bottom:24px;
+                margin-top:8px;
+                label{
+                  width:50%;
+                  float:left;
+                  line-height:48px;
+                  vertical-align: middle;
+                }
                 p{
                   float:left;
                   display:inline-block;
                   vertical-align: middle;
                   line-height:48px;
                 }
-                }
                 input{
                   width:70%;
                   float:right;
                 }
-                .product__sell__form__sellcontent__price__form__commitionleft{
-                width:50%;
-                float:left;
-                line-height:48px;
-                vertical-align: middle;
-                }
-                .product__sell__form__sellcontent__price__form__commitionright{
-                  float:right;
-                  display:inline-block;
-                  vertical-align: middle;
-                  line-height:48px;
-                }
-                .product__sell__form__sellcontent__price__form__totalleft{
-                  width:50%;
-                  float:left;
-                  line-height:48px;
-                  vertical-align: middle;
-                  font-weight: bold;
-                  font-size:16px;
-                }
-                .product__sell__form__sellcontent__price__form__totalright{
-                  float:right;
-                  display:inline-block;
-                  vertical-align: middle;
-                  line-height:48px;
-                  font-weight: bold;
-                  font-size:34px;
-                 }
-               }
-             }
-           }
-        }
+              }
+            }
+          }
         &__submit{
          width:604px;
          margin:40px 0;
@@ -226,7 +226,7 @@
           }
           &__done{
             margin:40px 0;
-            input.sell__product__done{
+            input{
             background: #ea352d;
             border: 1px solid #ea352d;
             color: #fff;

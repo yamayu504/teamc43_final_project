@@ -86,13 +86,13 @@
         .product__sell__form__sellcontent__price
           %h5 販売価格(300~9,999,999)
           .product__sell__form__sellcontent__price__form
-            %ul.product__sell__form__sellcontent__price__form
+            %ul
               %li
                 %label.form__label
                   価格
                   %span.form__require
                     必須
-                .price__form__right
+                .product__sell__form__sellcontent__price__form__right
                   %p ¥
                   = f.text_field "price", placeholder: "例）300",class: "input__default"
               %li.border__top
