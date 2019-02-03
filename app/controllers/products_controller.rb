@@ -6,4 +6,8 @@ class ProductsController < ApplicationController
     # カテゴリーテーブルできるまでの仮置き
     @choices = {"---": 0, "レディース": 1,"メンズ":2}
   end
+  def show
+    @product = Product.find(params[:id])
+  end
+
 end
