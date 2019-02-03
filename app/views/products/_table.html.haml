@@ -1,0 +1,62 @@
+%table
+  %tbody
+    %tr
+      %th 出品者
+      %td
+        = product.name
+        .product__detail__container__main__imgtable__userreview
+    %tr
+      %th カテゴリー
+      %td
+        = link_to "レディース", "#"
+        .product__detail__container__main__imgtable__category2
+          = link_to "#" do
+            %span.arrow
+              %i.fas.fa-angle-left
+            トップス
+        .product__detail__container__main__imgtable__category2
+          = link_to "#" do
+            %span.arrow
+              %i.fas.fa-angle-left
+            Tシャツカットソー
+    %tr
+      %th ブランド
+      %td
+        / = product.brand.name ブランド実装時に実装
+        = link_to "#" do
+          ヒューマンメード
+    %tr
+      %th 商品のサイズ
+      / サイズはサーバ側が決定次第実装
+      %td M
+    %tr
+      %th 商品の状態
+      %td
+        = product.condition
+    %tr
+      %th 配送料の負担
+      %td
+        = product.select_shipping_fee
+    %tr
+      %th 配送の方法
+      %td
+        = product.shipping_method
+    %tr
+      %th 配送元地域
+      %td
+        = link_to "#" do
+          = product.shipping_method
+    %tr
+      %th 配送日の目安
+      %td
+        = product.shipping_method
+
+
+
+
+
+
+
+
+
+
