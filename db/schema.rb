@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20190201073000) do
     t.string   "name",                                          null: false
     t.text     "description",         limit: 65535,             null: false
     t.integer  "condition",                         default: 0, null: false
+    t.integer  "size",                              default: 0
     t.integer  "select_shipping_fee",               default: 0, null: false
     t.integer  "shipping_method",                   default: 0, null: false
     t.integer  "area",                              default: 0, null: false
