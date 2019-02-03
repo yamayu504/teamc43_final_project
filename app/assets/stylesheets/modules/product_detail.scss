@@ -40,7 +40,7 @@
         width:100%;
         i,p{
         font-size:14px;
-        color: #0099e8;
+        color: $color-bluelink;
         text-decoration: none;
         border-bottom:solid 1px white;
         }
@@ -54,35 +54,37 @@
           font-size:14px;
         }
         a:hover{
-          color: rgba(0,153,232,0.7);
-          border-bottom:solid 1px rgba(0,153,232,0.7);
+          color: $color-bluelink-hover;
+          border-bottom:solid 1px $color-bluelink-hover;
         }
       }
       table{
         width:300px;
         float:right;
         th{
-          background-color:rgb(245, 245, 245);
+          background-color:rgb(250,250,250);
           vertical-align: center;
           padding:8px;
           width:99px;
+          border: solid 1px $background-gray;
         }
         td{
           vertical-align: center;
           padding:8px;
           width:182px;
+          border: solid 1px $background-gray;
           @include clearfix();
           a{
             font-size:14px;
             font-weight:bold;
-            color: #0099e8;
+            color: $color-bluelink;
             text-decoration: none;
             border-bottom:solid 1px white;
             float:left;
           }
           a:hover{
-          color: rgba(0,153,232,0.7);
-          border-bottom:solid 1px rgba(0,153,232,0.7);
+          color: $color-bluelink-hover;
+          border-bottom:solid 1px $color-bluelink-hover;
           }
         }
       }
@@ -139,7 +141,7 @@
         }
         a{
           i{
-            display: inline-block;;
+            display: inline-block;
           }
           span{
           font:400 14px system-ui;
@@ -154,11 +156,11 @@
           line-height: 33px;
           vertical-align: middle;
           font-size:14px;
-          color: #0099e8;
+          color: $color-bluelink;
           text-decoration: none;
           }
         a:hover{
-          color: rgba(0,153,232,0.7);
+          color: $color-bluelink-hover;
 
         }
       }
@@ -174,11 +176,11 @@
       line-height: 33px;
       vertical-align: middle;
       font-size:14px;
-      color: #0099e8;
+      color: $color-bluelink;
       text-decoration: none;
     }
     a:hover{
-      color: rgba(0,153,232,0.7);
+      color: $color-bluelink-hover;
     }
   }
   &__prenext{
@@ -224,32 +226,32 @@
     a.product__category__name{
       font-size:22px;
       font-weight:bold;
-      color: #0099e8;
+      color: $color-bluelink;
       text-decoration: none;
       margin:0 0 5px 0;
       text-align:center;
       display:inline-block;
-      border:solid 0.1em rgb(244,244,244);
+      border:solid 0.1em $background-gray;
     }
     a.product__category__name:hover{
-      color: rgba(0,153,232,0.7);
-      border-bottom:solid 0.1em rgba(0,153,232,0.7);
+      color: $color-bluelink-hover;
+      border-bottom:solid 0.1em $color-bluelink-hover;
     }
   }
   &__categoryrelevant{
     a.product__category__name{
       font-size:22px;
       font-weight:bold;
-      color: #0099e8;
+      color: $color-bluelink;
       text-decoration: none;
       margin:0 0 10px 0;
       text-align:center;
       display:inline-block;
-      border:solid 0.1em rgb(244,244,244);
+      border:solid 0.1em rgb(245,245,245);
     }
     a.product__category__name:hover{
-      color: rgba(0,153,232,0.7);
-      border-bottom:solid 0.1em rgba(0,153,232,0.7);
+      color: $color-bluelink-hover;
+      border-bottom:solid 0.1em $color-bluelink-hover;
     }
   }
 }

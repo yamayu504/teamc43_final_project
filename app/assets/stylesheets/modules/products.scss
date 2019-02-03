@@ -114,8 +114,8 @@ span#sell__botton{
               font-color:#333;
             }
             a:hover{
-             color: rgb(0,153,232);
-             font-color: rgb(0,153,232);
+             color: $color-bluelink;
+             font-color: $color-bluelink;
             }
           }
         }
@@ -137,8 +137,8 @@ span#sell__botton{
               font-color:#333;
             }
             a:hover{
-             color: rgb(0,153,232);
-             font-color: rgb(0,153,232);
+             color: $color-bluelink;
+             font-color: $color-bluelink;
             }
             img{
               float:left;
@@ -169,7 +169,7 @@ span#sell__botton{
       }
     }
   &__container{
-    background-color:rgb(244,244,244);
+    background-color:rgb(245,245,245);
     height:auto;
     width:100%;
     padding-top:20px 0;
@@ -186,11 +186,11 @@ span#sell__botton{
       margin:26px;
       text-align:center;
       display:inline-block;
-      border:solid 0.1em rgb(244,244,244);
+      border:solid 0.1em $background-gray;
       }
     a.product__category__name:hover{
-      color: rgba(0,153,232,0.7);
-      border-bottom:solid 0.1em rgba(0,153,232,0.7);
+      color:$color-bluelink-hover;
+      border-bottom:solid 0.1em $background-gray-hover;
     }
     .pickedup{
       padding:40px 0;
@@ -272,13 +272,13 @@ span#sell__botton{
         font-size:14px;
         text-align: right;
         a{
-        color: #0099e8;
+        color: $color-bluelink;
         text-decoration: none;
         text-align: right;
         }
         a:hover{
-          color: rgba(0,153,232,0.7);
-          border-bottom:solid 0.1em rgba(0,153,232,0.7);
+          color: $color-bluelink-hover;
+          border-bottom:solid 0.1em $color-bluelink-hover;
     }
       }
     }
