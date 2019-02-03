@@ -35,7 +35,7 @@
           }
         }
       }
-      &__category__children,__category__children{
+      &__category_children, &__category_grandson{
         float:left;
         width:100%;
         i,p{
@@ -52,7 +52,7 @@
         a{
           line-height:14px;
           font-size:14px;
-          a:hover{
+          &:hover{
           color: $color-bluelink-hover;
           border-bottom:solid 1px $color-bluelink-hover;
         }
@@ -82,7 +82,7 @@
             text-decoration: none;
             border-bottom:solid 1px white;
             float:left;
-            a:hover{
+            &:hover{
             color: $color-bluelink-hover;
             border-bottom:solid 1px $color-bluelink-hover;
             }
@@ -159,7 +159,7 @@
           font-size:14px;
           color: $color-bluelink;
           text-decoration: none;
-          a:hover{
+          &:hover{
             color: $color-bluelink-hover;
           }
         }
@@ -178,7 +178,7 @@
       font-size:14px;
       color: $color-bluelink;
       text-decoration: none;
-      a:hover{
+      &:hover{
         color: $color-bluelink-hover;
       }
     }
@@ -232,7 +232,7 @@
       text-align:center;
       display:inline-block;
       border:solid 0.1em $background-gray;
-      a.product__category__name:hover{
+      &:hover{
         color: $color-bluelink-hover;
         border-bottom:solid 0.1em $color-bluelink-hover;
       }
@@ -248,7 +248,7 @@
       text-align:center;
       display:inline-block;
       border:solid 1px $background-gray;
-      a.product__category__name:hover{
+      &:hover{
         color: $color-bluelink-hover;
         border-bottom:solid 1px $color-bluelink-hover;
       }
