@@ -35,7 +35,7 @@
           }
         }
       }
-      &__category2{
+      &__category__children,__category__children{
         float:left;
         width:100%;
         i,p{
@@ -52,11 +52,12 @@
         a{
           line-height:14px;
           font-size:14px;
-        }
-        a:hover{
+          a:hover{
           color: $color-bluelink-hover;
           border-bottom:solid 1px $color-bluelink-hover;
         }
+        }
+
       }
       table{
         width:300px;
@@ -81,10 +82,10 @@
             text-decoration: none;
             border-bottom:solid 1px white;
             float:left;
-          }
-          a:hover{
-          color: $color-bluelink-hover;
-          border-bottom:solid 1px $color-bluelink-hover;
+            a:hover{
+            color: $color-bluelink-hover;
+            border-bottom:solid 1px $color-bluelink-hover;
+            }
           }
         }
       }
@@ -158,10 +159,9 @@
           font-size:14px;
           color: $color-bluelink;
           text-decoration: none;
+          a:hover{
+            color: $color-bluelink-hover;
           }
-        a:hover{
-          color: $color-bluelink-hover;
-
         }
       }
     }
@@ -232,10 +232,10 @@
       text-align:center;
       display:inline-block;
       border:solid 0.1em $background-gray;
-    }
-    a.product__category__name:hover{
-      color: $color-bluelink-hover;
-      border-bottom:solid 0.1em $color-bluelink-hover;
+      a.product__category__name:hover{
+        color: $color-bluelink-hover;
+        border-bottom:solid 0.1em $color-bluelink-hover;
+      }
     }
   }
   &__categoryrelevant{
@@ -247,11 +247,11 @@
       margin:0 0 10px 0;
       text-align:center;
       display:inline-block;
-      border:solid 0.1em rgb(245,245,245);
-    }
-    a.product__category__name:hover{
-      color: $color-bluelink-hover;
-      border-bottom:solid 0.1em $color-bluelink-hover;
+      border:solid 1px $background-gray;
+      a.product__category__name:hover{
+        color: $color-bluelink-hover;
+        border-bottom:solid 1px $color-bluelink-hover;
+      }
     }
   }
 }
