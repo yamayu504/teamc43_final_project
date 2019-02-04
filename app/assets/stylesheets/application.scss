@@ -1,9 +1,15 @@
 @import "./reset";
 @import "./variable";
+// 色変数の設定
+@import "./colors";
 @import "modules/products";
 @import "font-awesome";
 @import 'font-awesome-sprockets';
 
 // product_sellについてのscss
 @import "modules/product_sell";
+// sharescss
 @import "./share";
+
+//  product_detailについてのscss
+@import "modules/product_detail";

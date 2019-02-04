@@ -4,6 +4,7 @@ class CreateProducts < ActiveRecord::Migration[5.0]
       t.string     :name, index: true,   null: false
       t.text       :description,         null: false
       t.integer    :condition,           null: false, default: 0
+      t.integer    :size,                             default: 0
       t.integer    :select_shipping_fee, null: false, default: 0
       t.integer    :shipping_method,     null: false, default: 0
       t.integer    :area,                null: false, default: 0
