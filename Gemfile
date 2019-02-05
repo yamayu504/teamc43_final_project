@@ -71,3 +71,4 @@ gem "font-awesome-rails"
 
 #font-awsome5対応
 gem 'font-awesome-sass'
+gem 'devise'
