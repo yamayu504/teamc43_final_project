@@ -13,3 +13,10 @@
 
 //  product_detailについてのscss
 @import "modules/product_detail";
+
+/*マイページ関連*/
+@import "./mypage";
+@import "./mypage-nav";
+@import "./mypage-user-icon";
+@import "./mypage-tab-container-notification-todo";
+@import "./mypage-tab-container-product";

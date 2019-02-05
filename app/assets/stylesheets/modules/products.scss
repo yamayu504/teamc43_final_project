@@ -43,9 +43,15 @@ span#sell__botton{
   font-size:65px;
   margin:8px 0 0;
 }
+<<<<<<< HEAD
+.product__wrapper{
+  background-color: white;
+  width: 100%;
+=======
 .header__wrapper{
   background-color:white;
   width:100%;
+>>>>>>> yamayu504/master
 }
 .product{
   &__header{
@@ -53,6 +59,7 @@ span#sell__botton{
     width:70%;
     height:90px;
     margin:0 auto;
+    z-index: 1;
     &__upper{
       @include clearfix();
       padding-top:8px;
@@ -285,6 +292,7 @@ span#sell__botton{
   }
   &__footer{
     background-color:#212121;
+    z-index: 1;
     &__app{
     background-image:image-url("products/app_image.png");
     height:260px;

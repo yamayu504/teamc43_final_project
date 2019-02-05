@@ -1,0 +1,71 @@
+.mypage-header
+= render "products/product_header"
+
+.mypage-wrapper.clearfix
+  .mypage-main
+    =render "users/mypage-user-icon"
+
+    %section.mypage-tab-container-notification-todo
+      .mypage-tabs
+        %input#tab-notification{checked: "checked", name: "mypage-tabs__item", type: "radio"}/
+        %label.mypage-tabs__item{for: "tab-notification"} お知らせ
+        %input#tab-todo{checked: "checked", name: "mypage-tabs__item", type: "radio"}/
+        %label.mypage-tabs__item{for: "tab-todo"} やることリスト
+        %ul#mypage-tab-notification.mypage-tabs__list
+          %li.mypage-tabs__list__item
+            %a{href: "",class: "mypage-tabs__list__item__link"}
+            %img{src: "assets/mypage/custom-banner-icon.png"}
+            .mypage-tabs__list__item__body
+              .mypage-tabs__list__item__body__text
+                明日、500Pの有効期限が切れます
+              %time
+                %p ５日前
+          %li.mypage-tabs__list__item
+            %a{href: "",class: "mypage-tabs__list__item__link--go-list"}
+              一覧を見る
+        %ul#mypage-tab-todo.mypage-tabs__list
+          %li.mypage-tabs__list__item
+            %a{href: "",class: "mypage-tabs__list__item__link"}
+            %img{src: "assets/mypage/custom-banner-icon.png"}
+            .mypage-tabs__list__item__body
+              .mypage-tabs__list__item__body__text
+                龍角散さんから「メルカリのアイコン」が発送されました。届いたら内容を確認して、受け取り評価をして下さい
+              %time
+                %p ５日前
+          %li.mypage-tabs__list__item
+            %a{href: "",class: "mypage-tabs__list__item__link--go-list"}
+              一覧を見る
+
+    %section.mypage-tab-container-product
+      .mypage-tabs
+        %h2 購入した商品
+        %input#tab-active{checked: "checked", name: "mypage-tabs__product", type: "radio"}/
+        %label.mypage-tabs__product{for: "tab-active"} 取引中
+        %input#tab-old{checked: "checked", name: "mypage-tabs__product", type: "radio"}/
+        %label.mypage-tabs__product{for: "tab-old"} 過去の取引
+        %ul#mypage-tab-active.mypage-tabs__list
+          %li.mypage-tabs__list__item
+            %a{href: "",class: "mypage-tabs__list__item__link"}
+            %img{src: "assets/mypage/custom-banner-icon.png"}
+            .mypage-tabs__list__item__body
+              .mypage-tabs__list__item__body__text
+                「メルカリ」を購入しました。受取評価してください
+              .mypage-tabs__list__item__body__status 受取評価待ち
+          %li.mypage-tabs__list__item
+            %a{href: "",class: "mypage-tabs__list__item__link--go-list"}
+              一覧を見る
+        %ul#mypage-tab-old.mypage-tabs__list
+          %li.mypage-tabs__list__item
+            %a{href: "",class: "mypage-tabs__list__item__link"}
+            %img{src: "assets/mypage/custom-banner-icon.png"}
+            .mypage-tabs__list__item__body
+              .mypage-tabs__list__item__body__text
+                龍角散さんから「メルカリのアイコン」が発送されました。届いたら内容を確認して、受け取り評価をして下さい
+              %time
+                %p ５日前
+          %li.mypage-tabs__list__item
+            %a{href: "",class: "mypage-tabs__list__item__link--go-list"}
+              一覧を見る
+
+  .mypage-side
+    = render "users/mypage-nav"
