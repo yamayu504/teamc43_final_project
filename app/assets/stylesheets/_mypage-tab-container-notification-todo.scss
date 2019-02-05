@@ -1,7 +1,7 @@
-.mypage-tab-container-notification-todo{
+.mypage-tabs{
   margin: 0;
   background: white;
-  .tab_item{
+  &__item{
     width: 50%;
     text-align: center;
     font-weight: bold;
@@ -12,17 +12,17 @@
     float: left;
     transition: all 0.2s ease;
   }
-  .tab_item:hover{
+  &__item:hover{
     opacity: 0.7;
   }
-  input[name="tab_item"]{
+  input[name="mypage-tabs__item"]{
     display: none;
   }
-  .tab-content__list{
+  &__list{
     display: none;
     clear: both;
     overflow: hidden;
-    li{
+    &__item{
       min-height:70px;
       padding: 16px;
       border-bottom: 1px solid #eee;
@@ -31,14 +31,14 @@
         opacity: 0.75;
         background: rgba(238, 238, 238, 0.5);
       }
-      .mypage-item-link{
+      &__link{
         position: absolute;
         top: 0;
         left: 0;
         height:100%;
         width: 100%;
       }
-      .mypage-go-list{
+      &__link--go-list{
         display:block;
         margin: 0 auto;
         height: 56px;
@@ -53,7 +53,7 @@
         height: 48px;
         width: 48px;
       }
-      .mypage-item-body{
+      &__body{
         margin: 0 40px 0 68px;
       }
     }
@@ -62,7 +62,7 @@
   #tab-todo:checked ~ #mypage-tab-todo{
     display: block;
   }
-  input:checked + .tab_item {
+  input:checked + .mypage-tabs__item {
     background-color: white;
     border-top: 2px solid #ea352d;
   }

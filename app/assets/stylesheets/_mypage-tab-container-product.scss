@@ -1,4 +1,4 @@
-.mypage-tab-container-product{
+.mypage-tabs{
   margin: 40px 0 0;
   background: #FFF;
   h2{
@@ -8,7 +8,7 @@
     font-weight:bold;
     font-size: 16px;
   }
-  .tab_product{
+  &__product{
     width: 50%;
     text-align: center;
     font-weight: bold;
@@ -19,33 +19,33 @@
     float: left;
     transition: all 0.2s ease;
   }
-  .tab_item:hover{
+  &__product:hover{
     opacity: 0.7;
   }
-  input[name="tab_product"]{
+  input[name="mypage-tabs__product"]{
     display: none;
   }
-  .tab-content__list{
+  &__list{
     display: none;
     clear: both;
     overflow: hidden;
-    li{
+    &__item{
       min-height:70px;
       padding: 16px;
       border-bottom: 1px solid #eee;
       position: relative;
-      a:hover{
+      &__link:hover{
         opacity: 0.75;
         background: rgba(238, 238, 238, 0.5);
       }
-      .mypage-item-link{
+      &__link{
         position: absolute;
         top: 0;
         left: 0;
         height:100%;
         width: 100%;
       }
-      .mypage-go-list{
+      &__link-go-list{
         display:block;
         margin: 0 auto;
         height: 56px;
@@ -60,9 +60,9 @@
         height: 48px;
         width: 48px;
       }
-      .mypage-item-body{
+      &__body{
         margin: 0 40px 0 68px;
-        .status{
+        &__status{
           background: #ea352d;
           display: inline-block;
           margin: 8px 0 0 0;
@@ -79,7 +79,7 @@
   #tab-old:checked ~ #mypage-tab-old{
     display: block;
   }
-  input:checked + .tab_product {
+  input:checked + .mypage-tabs__product {
     background-color: white;
     border-top: 2px solid #ea352d;
   }
