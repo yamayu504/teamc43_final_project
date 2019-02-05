@@ -9,7 +9,7 @@ html, body {
   width: 100vw;
   margin:0;
   padding:0;
-  background-color:white;
+  background-color:rgb(245, 245, 245);
 }
 h1,h2, h3, h4, h5, h6, p,a,div{
   font-size: 14px;
@@ -43,12 +43,23 @@ span#sell__botton{
   font-size:65px;
   margin:8px 0 0;
 }
+<<<<<<< HEAD
+.product__wrapper{
+  background-color: white;
+  width: 100%;
+=======
+.header__wrapper{
+  background-color:white;
+  width:100%;
+>>>>>>> yamayu504/master
+}
 .product{
   &__header{
     background-color:white;
     width:70%;
     height:90px;
     margin:0 auto;
+    z-index: 1;
     &__upper{
       @include clearfix();
       padding-top:8px;
@@ -110,8 +121,8 @@ span#sell__botton{
               font-color:#333;
             }
             a:hover{
-             color: rgb(0,153,232);
-             font-color: rgb(0,153,232);
+             color: $color-bluelink;
+             font-color: $color-bluelink;
             }
           }
         }
@@ -133,8 +144,8 @@ span#sell__botton{
               font-color:#333;
             }
             a:hover{
-             color: rgb(0,153,232);
-             font-color: rgb(0,153,232);
+             color: $color-bluelink;
+             font-color: $color-bluelink;
             }
             img{
               float:left;
@@ -165,7 +176,7 @@ span#sell__botton{
       }
     }
   &__container{
-    background-color:rgb(244,244,244);
+    background-color:rgb(245,245,245);
     height:auto;
     width:100%;
     padding-top:20px 0;
@@ -182,11 +193,11 @@ span#sell__botton{
       margin:26px;
       text-align:center;
       display:inline-block;
-      border:solid 0.1em rgb(244,244,244);
+      border:solid 0.1em $background-gray;
       }
-    a:hover{
-      color: rgba(0,153,232,0.7);
-      border-bottom:solid 0.1em rgba(0,153,232,0.7);
+    a.product__category__name:hover{
+      color:$color-bluelink-hover;
+      border-bottom:solid 0.1em $background-gray-hover;
     }
     .pickedup{
       padding:40px 0;
@@ -203,7 +214,7 @@ span#sell__botton{
           height:330px;
           width:213px;
           display:inline-block;
-          margin-left:20px;
+          margin:0 20px 20px 0;
           float:left;
           img.product__container__pickedcategory__list__content__body__img{
             width:213px;
@@ -231,7 +242,6 @@ span#sell__botton{
               font-weight: 600;
               color: #333;
               float:left;
-
               }
               &__fav{
               @include clearfix();
@@ -259,26 +269,30 @@ span#sell__botton{
                 text-align: left;
                 display: block;
                 clear: both;
-            }
+              }
             }
           }
-       }
+        }
       }
-    &__alllink{
-      padding:20px 0 30px 0;
-      font-size:14px;
-      text-align: right;
-      a{
-      color: #0099e8;
-      text-decoration: none;
-      text-align: right;
+      &__alllink{
+        padding:0 0 30px 0;
+        font-size:14px;
+        text-align: right;
+        a{
+        color: $color-bluelink;
+        text-decoration: none;
+        text-align: right;
+        }
+        a:hover{
+          color: $color-bluelink-hover;
+          border-bottom:solid 0.1em $color-bluelink-hover;
+    }
       }
     }
-    }
-
   }
   &__footer{
     background-color:#212121;
+    z-index: 1;
     &__app{
     background-image:image-url("products/app_image.png");
     height:260px;

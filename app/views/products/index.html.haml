@@ -1,3 +1,5 @@
+= render "products/sell_button"
+= render "products/product_header"
 .product__slider
   #slider
     %div.slider__image
@@ -9,8 +11,9 @@
 .product__container
   .product__container__category
     %h1 ピックアップカテゴリー
-    = render "products/one_category"
-    = render "products/one_category"
+    = render "products/four_products"
+    = render "products/four_products"
   .product__container__category.pickedup
     %h1 ピックアップブランドー
-    = render "products/one_category"
+    = render "products/four_products"
+= render "products/product_footer"

@@ -1,0 +1,86 @@
+.mypage-tabs{
+  margin: 40px 0 0;
+  background: #FFF;
+  h2{
+    padding: 0 16px;
+    line-height:72px;
+    background: #fafafa;
+    font-weight:bold;
+    font-size: 16px;
+  }
+  &__product{
+    width: 50%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 72px;
+    background: rgba(238, 238, 238, 1);
+    display: block;
+    float: left;
+    transition: all 0.2s ease;
+  }
+  &__product:hover{
+    opacity: 0.7;
+  }
+  input[name="mypage-tabs__product"]{
+    display: none;
+  }
+  &__list{
+    display: none;
+    clear: both;
+    overflow: hidden;
+    &__item{
+      min-height:70px;
+      padding: 16px;
+      border-bottom: 1px solid #eee;
+      position: relative;
+      &__link:hover{
+        opacity: 0.75;
+        background: rgba(238, 238, 238, 0.5);
+      }
+      &__link{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height:100%;
+        width: 100%;
+      }
+      &__link-go-list{
+        display:block;
+        margin: 0 auto;
+        height: 56px;
+        text-align: center;
+        line-height: 56px;
+        color: black;
+        background: #eee;
+        text-decoration: none;
+      }
+      img{
+        float: left;
+        height: 48px;
+        width: 48px;
+      }
+      &__body{
+        margin: 0 40px 0 68px;
+        &__status{
+          background: #ea352d;
+          display: inline-block;
+          margin: 8px 0 0 0;
+          padding: 5px 6px;
+          border-radius: 2px;
+          font-size: 12px;
+          color: white;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  #tab-active:checked ~ #mypage-tab-active,
+  #tab-old:checked ~ #mypage-tab-old{
+    display: block;
+  }
+  input:checked + .mypage-tabs__product {
+    background-color: white;
+    border-top: 2px solid #ea352d;
+  }
+}
