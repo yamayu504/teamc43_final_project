@@ -45,18 +45,18 @@ ActiveRecord::Schema.define(version: 20190206080807) do
     t.datetime "remember_created_at"
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
-    t.string   "nickname",               limit: 20
-    t.string   "last_name"
-    t.string   "first_name"
-    t.string   "last_name_kana"
-    t.string   "first_name_kana"
-    t.string   "phone_number"
+    t.string   "nickname",               limit: 20,                 null: false
+    t.string   "last_name",                                         null: false
+    t.string   "first_name",                                        null: false
+    t.string   "last_name_kana",                                    null: false
+    t.string   "first_name_kana",                                   null: false
+    t.string   "phone_number",                                      null: false
     t.string   "postal_code"
-    t.integer  "prefecture",                           default: 0
-    t.string   "cities"
-    t.string   "address"
+    t.integer  "prefecture",                           default: 0,  null: false
+    t.string   "cities",                                            null: false
+    t.string   "address",                                           null: false
     t.string   "building_name"
-    t.datetime "birthday"
+    t.datetime "birthday",                                          null: false
     t.string   "icon_image"
     t.text     "profile",                limit: 65535
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
