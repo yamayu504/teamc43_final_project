@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190205095114) do
+ActiveRecord::Schema.define(version: 20190206080807) do
 
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                                          null: false
@@ -38,13 +38,27 @@ ActiveRecord::Schema.define(version: 20190205095114) do
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                                default: "", null: false
+    t.string   "encrypted_password",                   default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
+    t.string   "nickname",               limit: 20
+    t.string   "last_name"
+    t.string   "first_name"
+    t.string   "last_name_kana"
+    t.string   "first_name_kana"
+    t.string   "phone_number"
+    t.string   "postal_code"
+    t.integer  "prefecture",                           default: 0
+    t.string   "cities"
+    t.string   "address"
+    t.string   "building_name"
+    t.datetime "birthday"
+    t.string   "icon_image"
+    t.text     "profile",                limit: 65535
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
