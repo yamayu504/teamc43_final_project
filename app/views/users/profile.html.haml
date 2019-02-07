@@ -1,7 +1,11 @@
 .profile-header
   = render "products/product_header"
 
-.profile-main
+.profile-wrapper.clearfix
+  .profile-main
+    %section.profile-content
+    %h2.profile-content__header
+      プロフィール
 
-.profile-side
-  = render "users/mypage-nav"
+  .profile-side
+    = render "users/mypage-nav"
