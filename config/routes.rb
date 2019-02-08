@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   root 'products#index'
   resources   :products, only:[:new, :show, :create]
   get 'users' => 'users#index'
-  get 'users/profile' => 'users#profile'
+  get 'users/profile' => 'users#show'
 end

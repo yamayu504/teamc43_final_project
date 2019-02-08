@@ -8,7 +8,7 @@
         プロフィール
       %form.profile-content__form
         .profile-content__form__nickname-area
-          %img.profile-content__form__nickname-area__icon-img{src:"/images/mypage/member_photo_noimage.png"}
+          = image_tag("/images/mypage/member_photo_noimage.png", class: "profile-content__form__nickname-area__icon-img")
           %input.input-default.profile-content__form__nickname-area__nickname{placeholder: "例)AYA☆セール中", type: "text", value: ""}/
         .profile-content__form__text-area
           %textarea.textarea-default.profile-content__form__text-area__text{placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
