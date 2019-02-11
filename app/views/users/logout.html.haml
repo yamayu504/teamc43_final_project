@@ -3,6 +3,7 @@
 
 .logout-wrapper.clreafix
   .logout-main
-    = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn-default logout-btn"
+    .logout-main__btn
+      = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn-default logout-main__btn--red"
   .logout-side
     = render 'users/mypage-nav'
