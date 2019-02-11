@@ -1,0 +1,116 @@
+.mypage-header
+  = render "products/product_header"
+
+%nav.bread-crumbs
+  %ul
+    %li メルカリ > マイページ > 本人情報の登録
+
+%main.l-container
+  .l-content
+    %section.l-content__l-chapter
+      %h2.l-content__l-chapter__head 本人情報の登録
+      %p.l-content__l-chapter__head__center お客さまのあんしん・あんぜんな取引のため、本人情報のご登録をお願いしております。
+      %form.l-content__l-chapter__head__center__l-single-inner{action: "/users/current_user_id/identifications", method: "POST", novalidate: ""}
+        .l-content__l-chapter__head__center__l-single-inner__form-group
+          %label.l-content__l-chapter__head__center__l-single-inner__form-group__label お名前
+          %span.l-content__l-chapter__head__center__l-single-inner__form-group__form-require 必須
+          %input.l-content__l-chapter__head__center__l-single-inner__form-group__input-default{name: "family_name_kanji", placeholder: "例）山田", type: "text", value: ""}/
+          %input.l-content__l-chapter__head__center__l-single-inner__form-group__input-default{name: "first_name_kanji", placeholder: "例）彩", type: "text", value: ""}/
+        .l-content__l-chapter__head__center__l-single-inner__form-group
+          %label.l-content__l-chapter__head__center__l-single-inner__form-group__label お名前カナ
+          %span.l-content__l-chapter__head__center__l-single-inner__form-group__form-require 必須
+          %input.l-content__l-chapter__head__center__l-single-inner__form-group__input-default{name: "family_name_kana", placeholder: "例）ヤマダ", type: "text", value: ""}/
+          %input.l-content__l-chapter__head__center__l-single-inner__form-group__input-default{name: "first_name_kana", placeholder: "例）アヤ", type: "text", value: ""}/
+        .l-content__l-chapter__head__center__l-single-inner__form-group
+          %label.l-content__l-chapter__head__center__l-single-inner__form-group__label{for: "zip_code"} 郵便番号
+          %span.l-content__l-chapter__head__center__l-single-inner__form-group__form-arbitrary 任意
+          %input.l-content__l-chapter__head__center__l-single-inner__form-group__input-default{name: "zip_code", placeholder: "例）1234567", type: "text", value: ""}/
+        .l-content__l-chapter__head__center__l-single-inner__form-group
+          %label.l-content__l-chapter__head__center__l-single-inner__form-group__label{for: "prefecture"} 都道府県
+          %span.l-content__l-chapter__head__center__l-single-inner__form-group__form-require 必須
+          .l-content__l-chapter__head__center__l-single-inner__form-group__select-wrap
+            %select.l-content__l-chapter__head__center__l-single-inner__form-group__select-wrap__select-default{name: "prefecture"}
+              %option 北海道
+              %option 青森県
+              %option 岩手県
+              %option 宮城県
+              %option 秋田県
+              %option 山形県
+              %option 福島県
+              %option 東京都
+              %option 神奈川県
+              %option 埼玉県
+              %option 千葉県
+              %option 茨城県
+              %option 栃木県
+              %option 群馬県
+              %option 山梨県
+              %option 新潟県
+              %option 長野県
+              %option 富山県
+              %option 石川県
+              %option 福井県
+              %option 愛知県
+              %option 岐阜県
+              %option 静岡県
+              %option 三重県
+              %option 大阪府
+              %option 兵庫県
+              %option 京都府
+              %option 滋賀県
+              %option 奈良県
+              %option 和歌山県
+              %option 鳥取県
+              %option 島根県
+              %option 岡山県
+              %option 広島県
+              %option 山口県
+              %option 徳島県
+              %option 香川県
+              %option 愛媛県
+              %option 高知県
+              %option 福岡県
+              %option 佐賀県
+              %option 長崎県
+              %option 熊本県
+              %option 大分県
+              %option 宮崎県
+              %option 鹿児島県
+              %option 沖縄県
+            %i.l-content__l-chapter__head__center__l-single-inner__form-group__icon-arrow-bottom.fa.fa-angle-down
+        .l-content__l-chapter__head__center__l-single-inner__form-group
+          %label.l-content__l-chapter__head__center__l-single-inner__form-group__label{for: "city"} 市区町村
+          %span.l-content__l-chapter__head__center__l-single-inner__form-group__form-require 必須
+          %input.l-content__l-chapter__head__center__l-single-inner__form-group__input-default{name: "city", placeholder: "例) 横浜市緑区", type: "text", value: ""}/
+        .l-content__l-chapter__head__center__l-single-inner__form-group
+          %label.l-content__l-chapter__head__center__l-single-inner__form-group__label{for: "address1_label"} 番地
+          %span.l-content__l-chapter__head__center__l-single-inner__form-group__form-require 必須
+          %input.l-content__l-chapter__head__center__l-single-inner__form-group__input-default{name: "address1", placeholder: "例) 青山1−1−1", type: "text", value: ""}/
+        .l-content__l-chapter__head__center__l-single-inner__form-group
+          %label.l-content__l-chapter__head__center__l-single-inner__form-group__label{for: "address2_label"} 建物名
+          %span.l-content__l-chapter__head__center__l-single-inner__form-group__form-arbitrary 任意
+          %input.l-content__l-chapter__head__center__l-single-inner__form-group__input-default{name: "address2", placeholder: "例) 柳ビル103", type: "text", value: ""}/
+        .l-content__l-chapter__head__center__l-single-inner__form-group
+          %label.l-content__l-chapter__head__center__l-single-inner__form-group__label{for: "birthday"} 生年月日
+          %span.l-content__l-chapter__head__center__l-single-inner__form-group__form-require 必須
+          %br/
+          .l-content__l-chapter__head__center__l-single-inner__form-group__birthday-select-wrap
+            .l-content__l-chapter__head__center__l-single-inner__form-group__select-wrap.l-content__l-chapter__head__center__l-single-inner__form-group__birthday-select-wrap__select-wrap
+              = raw sprintf(date_select(nil,:birthday, {use_month_numbers: true, start_year: 1900, end_year: (Time.now.year), default: Date.new(1989, 1, 1, ),date_separator: '%s'}, {class:"l-content__l-chapter__head__center__l-single-inner__form-group__birthday-select-wrap__select-wrap__select-default"}), '年 ', '月 ') + '日'
+              %i.l-content__l-chapter__head__center__l-single-inner__form-group__icon-arrow-bottom.first.fa.fa-angle-down
+              %i.l-content__l-chapter__head__center__l-single-inner__form-group__icon-arrow-bottom.second.fa.fa-angle-down
+              %i.l-content__l-chapter__head__center__l-single-inner__form-group__icon-arrow-bottom.third.fa.fa-angle-down
+          %p.l-content__l-chapter__head__center__l-single-inner__form-group__form-info-text
+            ※出品されたことがある、本人情報未登録のお客さまもご対象となります。
+          %input.l-content__l-chapter__head__center__l-single-inner__form-group__input-hidden{name: "birthday", type: "hidden", value: ""}/
+          .l-content__l-chapter__head__center__l-single-inner__form-group__clearfix
+        %button.l-content__l-chapter__head__center__l-single-inner__btn-default.btn-red{type: "submit"} 登録する
+        .l-content__l-chapter__head__center__l-single-inner__form-group.text-right
+          %p.l-content__l-chapter__head__center__l-single-inner__form-group__text
+            %a.l-content__l-chapter__head__center__l-single-inner__form-group__text__link{href: "#", target: "_self"}
+              本人情報の登録について
+              %i.l-content__l-chapter__head__center__l-single-inner__form-group__text__link__icon-arrow-right.fa.fa-angle-right
+  .mypage-side
+    = render "users/mypage-nav"
+.mypage-footer
+  = render "products/product_footer"

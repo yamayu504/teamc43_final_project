@@ -260,6 +260,7 @@ DEPENDENCIES
   font-awesome-rails
   font-awesome-sass
   haml-rails
+  i18n (= 1.5.3)
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
