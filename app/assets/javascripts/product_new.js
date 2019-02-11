@@ -108,7 +108,7 @@ $(document).on('turbolinks:load', function(){
       任意
     </span>
    </label>
-   <input placeholder="例) シャネル" class="input__default" type="text" name="product[brand_id]" id="product_brand_id">`
+   <input placeholder="例) シャネル" class="input__default" type="text" name="product[brand_id]" id="product_brand_id", autocomplete="off">`
   return html
   };
   $('.product__sell__form__sellcontent__detail__dropdown__category__default select').change(function(){
@@ -157,6 +157,7 @@ $(document).on('turbolinks:load', function(){
         var brandselectlist = buildbrandlist(brands);
         $('.product__sell__form__sellcontent__detail__dropdown__category__brand__list').children().remove();
         $('.product__sell__form__sellcontent__detail__dropdown__category__brand__list').append(brandselectlist).trigger("create");
+
       })
       .fail(function(brands) {
         $('.product__sell__form__sellcontent__detail__dropdown__category__brand__list').children().remove();
