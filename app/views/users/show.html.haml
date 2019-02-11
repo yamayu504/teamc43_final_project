@@ -1,0 +1,18 @@
+.profile-header
+  = render "products/product_header"
+
+.profile-wrapper.clearfix
+  .profile-main
+    %section.profile-content
+      %h2.profile-content__header
+        プロフィール
+      = form_for @user, url: {action: 'show'}, html: { class: 'profile-content__form'} do |f|
+        .profile-content__form__nickname-area
+          = image_tag("/images/mypage/member_photo_noimage.png", class: "profile-content__form__nickname-area__icon-img")
+          = f.text_field :nickname, class: 'profile-content__form__nickname-area__nickname', placeholder: "例)AYA☆セール中"
+        .profile-content__form__text-area
+          = f.text_area :profile, class: 'profile-content__form__text-area__text', placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"
+          %button.btn-default.profile-content__form__text-area__btn{type: "submit"} 変更する
+
+  .profile-side
+    = render "users/mypage-nav"
