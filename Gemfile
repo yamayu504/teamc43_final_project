@@ -47,6 +47,7 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -72,3 +73,4 @@ gem "font-awesome-rails"
 #font-awsome5対応
 gem 'font-awesome-sass'
 gem "i18n", "1.5.3"
+gem 'devise'

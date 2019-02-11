@@ -1,0 +1,23 @@
+.logout{
+  &-wrapper{
+    width: 1020px;
+    margin: 40px auto 0 ;
+    .logout-main{
+      float: right;
+      width: 700px;
+      background: #fff;
+      &__btn{
+        padding: 64px;
+        &--red{
+          background: #ea352d;
+          color: #fff;
+        }
+      }
+    }
+    .logout-side{
+      float: left;
+      width: 280px;
+      margin: 0 40px 0 0;
+    }
+  }
+}

@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   resources :users, only:[:index] do
     resources :identifications, only:[:index, :create]
   end
-
+  devise_for :users
+  get 'users/profile/:id' => 'users#show'
+  get 'users/logout'      => 'users#logout'
 end
