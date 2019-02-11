@@ -4,7 +4,7 @@
       = link_to "#" do
         = image_tag "products/logo.svg"
   .product__sell__form
-    = form_for @product do |f|
+    = form_for @product, html: {id:'new_product'} do |f|
       .product__sell__form__title
         %h1 商品の情報を入力
       .product__sell__form__images
@@ -15,14 +15,37 @@
               必須
           %p 最大10枚までアップロードできます
         .product__sell__form__images__container
-          / サーバサイド実装時に合わせて実装
-          / .product__sell__form__images__container__upload
-          /   %ul
-          /     %li
+          .product__sell__form__images__container__preview
+            %ul
+              / %li
+              /   = image_tag "test.jpg"
+              /   .product__sell__form__images__container__preview__box
+              /     .product__sell__form__images__container__preview__box__edit
+              /       編集
+              /     %div
+              /       %a.product__sell__form__images__container__preview__box__delete
+              /         削除
+              / %li
+              /   = image_tag "test.jpg"
+              /   .product__sell__form__images__container__preview__box
+              /     .product__sell__form__images__container__preview__box__edit
+              /       編集
+              /     %div
+              /       %a.product__sell__form__images__container__preview__box__delete
+              /         削除
+              / %li
+              /   = image_tag "test.jpg"
+              /   .product__sell__form__images__container__preview__box
+              /     .product__sell__form__images__container__preview__box__edit
+              /       編集
+              /     %div
+              /       %a.product__sell__form__images__container__preview__box__delete
+              /         削除
           .product__sell__form__images__container__guide
-            %h5
-              ドラッグ&ドロップ<br>またはクリックしてファイルをアップロード
-            = f.file_field "product[images][]", placeholder: "ドラッグアンドドロップ\nまたはクリックしてファイルをアップロード"
+            .have__image--0
+              %h5 ドラッグ&ドロップ<br>でファイルをアップロード
+          .product__sell__form__images__container__guide__error
+
       .product__sell__form__sellcontent
         .product__sell__form__sellcontent__name
           .product__sell__form__sellname__name__lavel
@@ -37,7 +60,7 @@
               商品の説明
               %span.form__require
                 必須
-          = f.text_area "name", placeholder: "",id: "product_explain", class: "textarea-default"
+          = f.text_area "description", placeholder: "",id: "product_explain", class: "textarea-default"
         .product__sell__form__sellcontent__detail
           %h5 商品の詳細
           .product__sell__form__sellcontent__detail__dropdown
@@ -46,15 +69,18 @@
                 カテゴリー
                 %span.form__require
                   必須
-              = f.select :category_id, @choices, {selected: 0}, {class: "select-default"}
-            .product__sell__form__sellcontent__detail__dropdown__category__2
-              = f.select "category_id", placeholder: "---"
-                .product__sell__form__sellcontent__detail__dropdown__category__3
-                  = f.select "category_id", placeholder: "---"
-                .product__sell__form__sellcontent__detail__dropdown__category__size
-                  = f.select "product[size_id]", placeholder: "---"
-                .product__sell__form__sellcontent__detail__dropdown__category__brand
-                  = f.text_field "brand_id", placeholder: "---"
+              .product__sell__form__sellcontent__detail__dropdown__category__default
+                = f.select :category_id, @choices, {selected: 0}, {class: "select-default"}
+              .product__sell__form__sellcontent__detail__dropdown__category__child.category__children
+
+              .product__sell__form__sellcontent__detail__dropdown__category__grandson.category__children
+
+              .product__sell__form__sellcontent__detail__dropdown__category__size.size__brand__remover
+
+              .product__sell__form__sellcontent__detail__dropdown__category__brand.size__brand__remover
+
+              .product__sell__form__sellcontent__detail__dropdown__category__brand__list
+
             .product__sell__form__sellcontent__detail__dropdown__condition
               %label.form__label
                 商品の状態
