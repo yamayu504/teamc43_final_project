@@ -47,15 +47,14 @@
                 %span.form__require
                   必須
               = f.select :category_id, @choices, {selected: 0}, {class: "select-default"}
-            / カテゴリー実装時に実装
-            /     .product__sell__form__sellcontent__detail__dropdown__category__2
-            /       = f.select "category_id", placeholder: "---"
-            /         .product__sell__form__sellcontent__detail__dropdown__category__3
-            /           = f.select "category_id", placeholder: "---"
-            /         .product__sell__form__sellcontent__detail__dropdown__category__size
-            /           = f.select "product[size_id]", placeholder: "---"
-            /         .product__sell__form__sellcontent__detail__dropdown__category__brand
-            /           = f.text_field "brand_id", placeholder: "---"
+            .product__sell__form__sellcontent__detail__dropdown__category__2
+              = f.select "category_id", placeholder: "---"
+                .product__sell__form__sellcontent__detail__dropdown__category__3
+                  = f.select "category_id", placeholder: "---"
+                .product__sell__form__sellcontent__detail__dropdown__category__size
+                  = f.select "product[size_id]", placeholder: "---"
+                .product__sell__form__sellcontent__detail__dropdown__category__brand
+                  = f.text_field "brand_id", placeholder: "---"
             .product__sell__form__sellcontent__detail__dropdown__condition
               %label.form__label
                 商品の状態
