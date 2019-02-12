@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   end
   def update
-    @product = Product.
+    # @product = Product.
   end
   def show
     @user = User.find(params[:id])
