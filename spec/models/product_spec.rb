@@ -78,7 +78,6 @@ RSpec.describe Product, type: :model do
     it "is invalid price less than 10000000" do
       product  = build(:product, price:10000001)
       product.valid?
-      binding.pry
       expect(product.errors[:price]).to include("must be less than 10000000")
     end
   end

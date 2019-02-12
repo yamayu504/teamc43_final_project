@@ -10,7 +10,6 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
   def create
-    binding.pry
     if params[:p_image].present?
       @product = Product.create!(create_params.merge(for_sale:1, deal: 0))
       image_params[:p_images].each do |product_image|
