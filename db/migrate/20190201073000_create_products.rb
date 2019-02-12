@@ -13,7 +13,7 @@ class CreateProducts < ActiveRecord::Migration[5.0]
       t.references :seller
       t.references :buyer
       t.integer    :for_sale,            null: false, default: 0
-      t.integer    :deal,                 null: false, default: 0
+      t.integer    :deal,                null: false, default: 0
       t.references :category,            null: false
       t.references :brand
       t.timestamps
