@@ -29,7 +29,7 @@
           %label.l-content__l-chapter__head__center__l-single-inner__form-group__label{for: "prefecture"} 都道府県
           %span.l-content__l-chapter__head__center__l-single-inner__form-group__form-require 必須
           .l-content__l-chapter__head__center__l-single-inner__form-group__select-wrap
-            = select :nil, :prefecture, User.prefectures.keys,{},class: "l-content__l-chapter__head__center__l-single-inner__form-group__select-wrap__select-default"
+            = select :nil, :prefecture_18n, User.prefectures_i18n.values,{},class: "l-content__l-chapter__head__center__l-single-inner__form-group__select-wrap__select-default"
 
             %i.l-content__l-chapter__head__center__l-single-inner__form-group__icon-arrow-bottom.fa.fa-angle-down
         .l-content__l-chapter__head__center__l-single-inner__form-group

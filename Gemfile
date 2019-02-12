@@ -74,3 +74,4 @@ gem "font-awesome-rails"
 gem 'font-awesome-sass'
 gem "i18n", "1.5.3"
 gem 'devise'
+gem 'enum_help'
