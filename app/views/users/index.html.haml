@@ -1,5 +1,5 @@
 .mypage-header
-= render "products/product_header"
+  = render "products/product_header"
 
 .mypage-wrapper.clearfix
   .mypage-main
@@ -14,7 +14,7 @@
         %ul#mypage-tab-notification.mypage-tabs__list
           %li.mypage-tabs__list__item
             %a{href: "",class: "mypage-tabs__list__item__link"}
-            %img{src: "/images/mypage/custom-banner-icon.png"}
+            = image_tag("/images/mypage/custom-banner-icon.png")
             .mypage-tabs__list__item__body
               .mypage-tabs__list__item__body__text
                 明日、500Pの有効期限が切れます
@@ -26,7 +26,7 @@
         %ul#mypage-tab-todo.mypage-tabs__list
           %li.mypage-tabs__list__item
             %a{href: "",class: "mypage-tabs__list__item__link"}
-            %img{src: "/images/mypage/custom-banner-icon.png"}
+            = image_tag("/images/mypage/custom-banner-icon.png")
             .mypage-tabs__list__item__body
               .mypage-tabs__list__item__body__text
                 龍角散さんから「メルカリのアイコン」が発送されました。届いたら内容を確認して、受け取り評価をして下さい
@@ -46,7 +46,7 @@
         %ul#mypage-tab-active.mypage-tabs__list
           %li.mypage-tabs__list__item
             %a{href: "",class: "mypage-tabs__list__item__link"}
-            %img{src: "/images/mypage/custom-banner-icon.png"}
+            = image_tag("/images/mypage/custom-banner-icon.png")
             .mypage-tabs__list__item__body
               .mypage-tabs__list__item__body__text
                 「メルカリ」を購入しました。受取評価してください
@@ -57,7 +57,7 @@
         %ul#mypage-tab-old.mypage-tabs__list
           %li.mypage-tabs__list__item
             %a{href: "",class: "mypage-tabs__list__item__link"}
-            %img{src: "/images/mypage/custom-banner-icon.png"}
+            = image_tag("/images/mypage/custom-banner-icon.png")
             .mypage-tabs__list__item__body
               .mypage-tabs__list__item__body__text
                 龍角散さんから「メルカリのアイコン」が発送されました。届いたら内容を確認して、受け取り評価をして下さい
