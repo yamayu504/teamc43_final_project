@@ -46,6 +46,8 @@ $(document).on('turbolinks:load', function(){
             var index = $(".product__sell__form__images__container__preview a").index(this);
             files_array.splice(index, 1);
             $(this).parent().parent().parent().remove();
+        $('.product__sell__form__images__container__guide div').removeClass();
+        $('.product__sell__form__images__container__guide div').addClass('have__image--' + files_array.length).trigger("create");
         });
       // submit時の値の受け渡し。
      $(document).on('submit','#new_product', function(e){
@@ -56,9 +58,6 @@ $(document).on('turbolinks:load', function(){
        formData.append("p_image[p_images][]" , p_file)
        i = i + 1
       });
-      // var messageConfirm  = $.isEmptyObject(formData.get("message[message]"));
-      // var imageConfirm    = $.isEmptyObject(formData.get("message[image]").name);
-      // image,messageどちらも空の場合はこの時点で弾く。
       $.ajax({
         url:         '/products',
         type:        "POST",
@@ -70,18 +69,15 @@ $(document).on('turbolinks:load', function(){
       })
       .done(function(data){
         // 正しく、遷移した場合の処理
-        console.log(data)
-        console.log("おめでとうございます。")
-        // 仮置きで、ルートパスに遷移させています。
         window.location.href = "/";
+        alert('出品に成功しました！');
       })
       // failは通信処理ができなかった時の処理
       .fail(function(XMLHttpRequest, textStatus, errorThrown){
-        console.log(XMLHttpRequest);
-        console.log(textStatus);
-        console.log(errorThrown);
-        alert('通信に失敗しました。再度投稿してください。');
-
+        $('.product__sell__form__title div').remove();
+        $('<div class="flash flash__alert">入力に不備があります。 再度入力してください。</div>').appendTo(".product__sell__form__title").trigger("create");
+        $('.sell__product__done').prop('disabled', false);
+        $('html,body').animate({scrollTop: 0}, 500, 'swing');
       });
     });
   });
@@ -90,6 +86,7 @@ $(document).on('turbolinks:load', function(){
 
 
   // ドロップダウンボックスの実装.
+  // カテゴリーとサイズは、カテゴリー機能実装時にテーブルから値を持ってくる想定である為仮置きです。
   function buildselect(){
     var html =
     `<select name="product[category_id]" class="select-default"><option value="">---</option><option value="1">レディース</option><option value="2">メンズ</option><option value="3">ベビー・キッズ</option><option value="4">インテリア・住まい・小物</option><option value="5">本・音楽・ゲーム</option><option value="1328">おもちゃ・ホビー・グッズ</option><option value="6">コスメ・香水・美容</option><option value="7">家電・スマホ・カメラ</option><option value="8">スポーツ・レジャー</option><option value="9">ハンドメイド</option><option value="1027">チケット</option><option value="1318">自動車・オートバイ</option><option value="10">その他</option></select>`
@@ -182,6 +179,7 @@ $(document).on('turbolinks:load', function(){
     }else{
       $('.product__sell__form__sellcontent__price__form__commitionright span').text("-");
       $('.product__sell__form__sellcontent__price__form__totalright span').text("-");
+
     }
   });
 });

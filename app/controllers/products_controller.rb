@@ -11,16 +11,19 @@ class ProductsController < ApplicationController
   end
   def create
     binding.pry
-    @product = Product.create!(create_params.merge(for_sale:1, deal: 0))
-    image_params[:p_images].each do |product_image|
-      binding.pry
-      @product.p_images.build
-      p_image = @product.p_images.new(image: product_image)
-      p_image.save
-    end
-    respond_to do |format|
-      format.html
-      format.json
+    if params[:p_image].present?
+      @product = Product.create!(create_params.merge(for_sale:1, deal: 0))
+      image_params[:p_images].each do |product_image|
+        @product.p_images.build
+        p_image = @product.p_images.new(image: product_image)
+        p_image.save
+      end
+      respond_to do |format|
+        format.html
+        format.json
+      end
+    else
+      redirect_to new_product_path, alert: '入力に不備があります。必須項目を入力してください。'
     end
   end
   def search
@@ -39,7 +42,6 @@ class ProductsController < ApplicationController
       return product_params
   end
   def image_params
-    binding.pry
     params.require(:p_image).permit({:p_images => []})
 
   end

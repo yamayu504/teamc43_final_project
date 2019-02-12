@@ -7,13 +7,15 @@
     = form_for @product, html: {id:'new_product'} do |f|
       .product__sell__form__title
         %h1 商品の情報を入力
+        - flash.each do |key, value|
+          = content_tag(:div, value, class: "flash flash__#{key}")
       .product__sell__form__images
         .product__sell__form__images__label
           %label.form__label
             出品画像
             %span.form__require
               必須
-          %p 最大10枚までアップロードできます
+          %p 最大4枚までアップロードできます
         .product__sell__form__images__container
           .product__sell__form__images__container__preview
             %ul
@@ -50,7 +52,7 @@
         .product__sell__form__sellcontent__name
           .product__sell__form__sellname__name__lavel
             %label.form__label
-              商品名
+              商品名（必須40文字まで）
               %span.form__require
                 必須
           = f.text_field "name", placeholder: "商品名（必須40文字まで）", id: "product_name", class: "input__default"
@@ -60,7 +62,7 @@
               商品の説明
               %span.form__require
                 必須
-          = f.text_area "description", placeholder: "",id: "product_explain", class: "textarea-default"
+          = f.text_area "description", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。",id: "product_explain", class: "textarea-default"
         .product__sell__form__sellcontent__detail
           %h5 商品の詳細
           .product__sell__form__sellcontent__detail__dropdown
