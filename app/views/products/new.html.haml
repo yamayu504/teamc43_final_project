@@ -85,7 +85,7 @@
                 発送元の地域
                 %span.form__require
                   必須
-              = f.select "area", Product.areas_i18n.values.to_a,{}, {class:"select-default"}
+              = f.select "area", Product.areas.keys.map {|k| [I18n.t("enums.product.area.#{k}"), k]},{}, {class:"select-default"}
             .product__sell__form__sellcontent__delivery__dropdown__shippingdate
               %label.form__label
                 発送までの時間

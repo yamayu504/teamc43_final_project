@@ -12,14 +12,15 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
   def create
-      @product = Product.create!(create_params.merge(for_sale:1, deal: 0))
-      image_params[:p_images].each do |image|
-        @product.p_images.build
-        @product.p_images.create(image: image)
-      end
-      respond_to do |format|
-        format.json
-      end
+    @product = Product.create!(create_params.merge(for_sale:1, deal: 0))
+    image_params[:p_images].each do |image|
+      @product.p_images.build
+      product_image = @product.p_images.new(image: image)
+      product_image.save
+    end
+    respond_to do |format|
+      format.json
+    end
   end
   def search
     @brands = Brand.where('name LIKE(?)', "%#{params[:keyword]}%").limit(10)
