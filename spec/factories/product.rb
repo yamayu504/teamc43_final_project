@@ -19,6 +19,4 @@ FactoryGirl.define do
     association :seller, factory: :user
     association :category, factory: :category
   end
-
-
 end
