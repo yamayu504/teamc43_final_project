@@ -1,7 +1,7 @@
 .product__sell
   .product__sell__header
     .product__sell__header__logo
-      = link_to "#" do
+      = link_to root_path do
         = image_tag "products/logo.svg"
   .product__sell__form
     = form_for @product, html: {id:'new_product'} do |f|
@@ -130,6 +130,6 @@
         %li
           = link_to "特定商取引に関する表記", "#"
     .product__sell__footer__copyright
-      = link_to "#" do
+      = link_to root_path do
         = image_tag "products/logo-gray.svg", id: "gray_logo-footer"
       %p © 2019 Mercari
