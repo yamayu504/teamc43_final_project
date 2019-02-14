@@ -1,33 +1,34 @@
 .product__sell
   .product__sell__header
     .product__sell__header__logo
-      = link_to "#" do
+      = link_to root_path do
         = image_tag "products/logo.svg"
   .product__sell__form
-    = form_for @product do |f|
+    = form_for @product, html: {id:'new_product'} do |f|
       .product__sell__form__title
         %h1 商品の情報を入力
+        - flash.each do |key, value|
+          = content_tag(:div, value, class: "flash flash__#{key}")
       .product__sell__form__images
         .product__sell__form__images__label
           %label.form__label
             出品画像
             %span.form__require
               必須
-          %p 最大10枚までアップロードできます
+          %p 最大4枚までアップロードできます
         .product__sell__form__images__container
-          / サーバサイド実装時に合わせて実装
-          / .product__sell__form__images__container__upload
-          /   %ul
-          /     %li
+          .product__sell__form__images__container__preview
+            %ul
           .product__sell__form__images__container__guide
-            %h5
-              ドラッグ&ドロップ<br>またはクリックしてファイルをアップロード
-            = f.file_field "product[images][]", placeholder: "ドラッグアンドドロップ\nまたはクリックしてファイルをアップロード"
+            .have__image--0
+              %h5 ドラッグ&ドロップ<br>でファイルをアップロード
+          .product__sell__form__images__container__guide__error
+
       .product__sell__form__sellcontent
         .product__sell__form__sellcontent__name
           .product__sell__form__sellname__name__lavel
             %label.form__label
-              商品名
+              商品名（必須40文字まで）
               %span.form__require
                 必須
           = f.text_field "name", placeholder: "商品名（必須40文字まで）", id: "product_name", class: "input__default"
@@ -37,7 +38,7 @@
               商品の説明
               %span.form__require
                 必須
-          = f.text_area "name", placeholder: "",id: "product_explain", class: "textarea-default"
+          = f.text_area "description", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。",id: "product_explain", class: "textarea-default"
         .product__sell__form__sellcontent__detail
           %h5 商品の詳細
           .product__sell__form__sellcontent__detail__dropdown
@@ -46,16 +47,18 @@
                 カテゴリー
                 %span.form__require
                   必須
-              = f.select :category_id, @choices, {selected: 0}, {class: "select-default"}
-            / カテゴリー実装時に実装
-            /     .product__sell__form__sellcontent__detail__dropdown__category__2
-            /       = f.select "category_id", placeholder: "---"
-            /         .product__sell__form__sellcontent__detail__dropdown__category__3
-            /           = f.select "category_id", placeholder: "---"
-            /         .product__sell__form__sellcontent__detail__dropdown__category__size
-            /           = f.select "product[size_id]", placeholder: "---"
-            /         .product__sell__form__sellcontent__detail__dropdown__category__brand
-            /           = f.text_field "brand_id", placeholder: "---"
+              .product__sell__form__sellcontent__detail__dropdown__category__default
+                = f.select :category_id, @choices, {selected: 0}, {class: "select-default"}
+              .product__sell__form__sellcontent__detail__dropdown__category__child.category__children
+
+              .product__sell__form__sellcontent__detail__dropdown__category__grandson.category__children
+
+              .product__sell__form__sellcontent__detail__dropdown__category__size.size__brand__remover
+
+              .product__sell__form__sellcontent__detail__dropdown__category__brand.size__brand__remover
+
+              .product__sell__form__sellcontent__detail__dropdown__category__brand__list
+
             .product__sell__form__sellcontent__detail__dropdown__condition
               %label.form__label
                 商品の状態
@@ -82,7 +85,7 @@
                 発送元の地域
                 %span.form__require
                   必須
-              = f.select "area", Product.areas_i18n.values.to_a,{}, {class:"select-default"}
+              = f.select "area", Product.areas.keys.map {|k| [I18n.t("enums.product.area.#{k}"), k]},{}, {class:"select-default"}
             .product__sell__form__sellcontent__delivery__dropdown__shippingdate
               %label.form__label
                 発送までの時間
@@ -127,6 +130,6 @@
         %li
           = link_to "特定商取引に関する表記", "#"
     .product__sell__footer__copyright
-      = link_to "#" do
+      = link_to root_path do
         = image_tag "products/logo-gray.svg", id: "gray_logo-footer"
       %p © 2019 Mercari

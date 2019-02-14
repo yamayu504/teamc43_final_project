@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   root 'products#index'
+  get 'products/search' => 'products#search'
   resources :products, only:[:new, :show, :create]
   resources :users, only:[:index] do
     resources :identifications, only:[:index, :create]
