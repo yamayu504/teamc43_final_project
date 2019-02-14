@@ -1,3 +1,42 @@
+.have__image--0{
+  width:620px;
+  border: 1px dashed #ccc;
+  height:160px;
+}
+.have__image--1{
+  width:430px;
+  border: 1px dashed #ccc;
+ height:160px;
+}
+.have__image--2{
+  width:300px;
+  border: 1px dashed #ccc;
+ height:160px;
+}
+.have__image--3{
+  width:140px;
+  border: 1px dashed #ccc;
+ height:160px;
+}
+.have__image--4{
+  display:none;
+  border:none;
+}
+
+.form-suggest-list {
+    overflow: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    max-height: 280px;
+
+    width:100%;
+    background: #fff;
+    -webkit-box-shadow: 0 0 4px 0 rgba(0,0,0,0.64);
+    box-shadow: 0 0 4px 0 rgba(0,0,0,0.64);
+    -webkit-overflow-scrolling: touch;
+}
 .product__sell{
   background-color:$background-gray;
   &__header{
@@ -37,22 +76,72 @@
          }
        }
        &__container{
-        width: 620px;
-        height:162px;
-        margin-top:16px;
+         width: 620px;
+         height:160px;
+         margin-top:16px;
+        @include clearfix();
+         &__preview{
+           ul{
+            @include clearfix();
+            float:left;
+            li{
+              float:left;
+              background-color:$background-gray;
+              margin-right:16px;
+              img{
+                height:120px;
+                width:140px;
+                object-fit: contain;
+              }
+            }
+           }
+           &__box{
+              @include clearfix();
+                height:43px;
+                width:140px;
+                background-color:$background-gray;
+             &__edit{
+              float:left;
+              width:50%;
+              display: inline-block;
+              text-align: center;
+              line-height: 43px;
+              vertical-align: middle;
+             }
+             &__delete{
+              float:right;
+              border-left: solid 1px rgb(238,238,238);
+              width:calc(50% - 1px);
+              line-height: 43px;
+              vertical-align: middle;
+              display: inline-block;
+              text-align: center;
+             }
+             a{
+                line-height: 43px;
+                vertical-align: middle;
+                font-size:14px;
+                color: $color-bluelink;
+                text-decoration: none;
+              &:hover{
+                color: $color-bluelink-hover;
+                 cursor: pointer;
+              }
+
+             }
+           }
+         }
          &__guide{
           text-align: center;
-          position: relative;
           min-height: 162px;
+          width:auto;
           background: #f5f5f5;
-          border: 1px dashed #ccc;
           font-size: 0;
           text-align: center;
-          -webkit-transition: -webkit-box-shadow ease-out .3s;
-          transition: -webkit-box-shadow ease-out .3s;
-          transition: box-shadow ease-out .3s;
-          transition: box-shadow ease-out .3s, -webkit-box-shadow ease-out .3s;
           cursor: pointer;
+          float:right;
+          display: inline-block;
+
           h5{
             margin-top:50px;
           }
@@ -105,6 +194,34 @@
             margin-top:8px;
           }
           &__category{
+            &__default{
+
+            }
+            &__child{
+
+            }
+            &__size{
+              margin-top:10px;
+            }
+            &__brand{
+              margin-top:20px;
+              width:100%;
+              #product_brand_id{
+                width:calc(100% - 32px);
+              }
+            }
+            &__brand__list{
+                position: relative;
+              li{
+                cursor: pointer;
+                padding: 16px 8px;
+                font-size: 14px;
+                &:hover{
+                  background-color: $color-bluelink;
+                  color:white;
+                }
+              }
+            }
           }
           &__condition{
             margin-top:8px;
@@ -167,6 +284,9 @@
                 margin: 0;
                 font-size:0.7em;
                 font-color:black;
+                input{
+                  text-align: right;
+                }
             }
             &__commitionleft{
               width:50%;
