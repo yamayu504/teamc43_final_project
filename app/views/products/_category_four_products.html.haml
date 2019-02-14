@@ -1,0 +1,7 @@
+- categories.each do |category|
+  = link_to root_path, class: "product__category__name" do
+    = category.name
+  .product__container__category__list
+    = render "products/product", products: Product.where(category_id: category.id).limit(4)
+  .product__container__category__alllink
+    = link_to "全ての商品を見る", root_path

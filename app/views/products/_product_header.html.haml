@@ -1,7 +1,7 @@
 .product__wrapper
   .product__header
     .product__header__upper
-      = link_to "#" do
+      = link_to root_path do
         = image_tag "products/logo.svg", id: "logo"
       = form_tag("#", method: :get,id: "search") do
         = text_field_tag :keyword,"", {placeholder: "検索する"}
@@ -19,16 +19,16 @@
       .product__header__navbar__right
         %ul
           %li
-            = link_to "#" do
-              = image_tag "test.jpg", class: "profile_icon",size: "36x36"
+            = link_to users_path do
+              = image_tag "/images/mypage/member_photo_noimage.png", class: "profile_icon",size: "36x36"
               マイページ
           %li
-            = link_to "#" do
+            = link_to users_path do
               %span.nav
                 = icon('far', 'bell')
               お知らせ
           %li
-            = link_to "#" do
+            = link_to users_path do
               %span.nav
                 %i.fas.fa-check
               やることリスト
