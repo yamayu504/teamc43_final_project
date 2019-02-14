@@ -1,3 +1,6 @@
+require 'csv'
+
+unless User.exists?
 user = User.new(
   nickname: 'まいやん',
   email: "maiyan@email.com",
@@ -17,3 +20,20 @@ user = User.new(
   profile: '四次元から来ましたマヨラー星人、19歳、まいやんこと、白石麻衣です'
   )
 user.save!
+end
+
+unless Brand.exists?
+  CSV.foreach('db/csv/brands.csv') do |row|
+    Brand.create(id: row[0], name: row[1], group_name: row[2], name_initial: row[3])
+  end
+end
+unless Category.exists?
+  CSV.foreach('db/csv/categories.csv') do |row|
+    Category.create(id: row[0], name: row[1], parent_id: row[2], name_initial: row[3],created_at: row[4],updated_at:[5])
+  end
+end
+unless Size.exists?
+  CSV.foreach('db/csv/sizes.csv') do |row|
+    Size.create(id: row[0], size: row[1], created_at: row[2],updated_at:[3])
+  end
+end
