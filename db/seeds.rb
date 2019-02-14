@@ -29,7 +29,7 @@ unless Brand.exists?
 end
 unless Category.exists?
   CSV.foreach('db/csv/categories.csv') do |row|
-    Category.create(id: row[0], name: row[1], parent_id: row[2], name_initial: row[3],created_at: row[4],updated_at:[5])
+    Category.create(id: row[0], name: row[1], parent_id: row[2],created_at: row[3],updated_at:[4])
   end
 end
 unless Size.exists?
