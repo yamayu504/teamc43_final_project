@@ -56,6 +56,23 @@ let(:brand) { create(:brand)}
       expect(response).to render_template :index
     end
   end
+  describe 'GET #show' do
+    before do
+      get :show, params: { id: 1 }
+    end
+    it "@product not to empty " do
+      expect(assigns(:product).name).to eq "AWS"
+    end
+    it "@images not to empty" do
+      expect(assigns(:images)).not_to be_empty
+    end
+    it "@similer_category is not empty" do
+      expect(assigns(:similer_categories)).not_to be_empty
+    end
+    it "renders index " do
+      expect(response).to render_template :show
+    end
+  end
 end
 
 

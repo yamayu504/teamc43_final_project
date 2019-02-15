@@ -14,6 +14,9 @@ class ProductsController < ApplicationController
   end
   def show
     @product = Product.find(params[:id])
+    @images  = @product.p_images
+    @similer_categories  = Product.where(category_id: @product.category_id).order('id ASC').limit(6)
+    @user_products =Product.where(seller_id: @product.seller_id).limit(6)
   end
   def create
     @product = Product.create!(create_params.merge(for_sale:1, deal: 0))
