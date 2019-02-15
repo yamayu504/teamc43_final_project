@@ -9,7 +9,7 @@ user = User.new(
   first_name_kana: 'マイ',
   phone_number: '09011113333',
   postal_code: '1234567',
-  prefecture: '0',
+  prefecture: 0,
   cities: '千代田区',
   address: '新町',
   building_name: '乃木坂ビル46階',

@@ -1,3 +1,6 @@
+- if @user.errors.any?
+  = render 'layouts/notifications'
+
 .mypage-header
   = render "products/product_header"
 
@@ -10,55 +13,53 @@
     %section.l-content__l-chapter
       %h2.l-content__l-chapter__head 本人情報の登録
       %p.l-content__l-chapter__head__center お客さまのあんしん・あんぜんな取引のため、本人情報のご登録をお願いしております。
-      %form.l-content__l-chapter__head__center__l-single-inner{action: "/users/current_user_id/identifications", method: "POST", novalidate: ""}
+
+      = form_for @user, url: {action: 'update'}, html: { class: 'l-content__l-chapter__head__center__l-single-inner'} do |f|
         .l-content__l-chapter__head__center__l-single-inner__form-group
-          %label.l-content__l-chapter__head__center__l-single-inner__form-group__label お名前
+          = f.label :first_name, "お名前", class: "l-content__l-chapter__head__center__l-single-inner__form-group__label"
           %span.l-content__l-chapter__head__center__l-single-inner__form-group__form-require 必須
-          %input.l-content__l-chapter__head__center__l-single-inner__form-group__input-default{name: "family_name_kanji", placeholder: "例）山田", type: "text", value: ""}/
-          %input.l-content__l-chapter__head__center__l-single-inner__form-group__input-default{name: "first_name_kanji", placeholder: "例）彩", type: "text", value: ""}/
+          = f.text_field :first_name, class: 'l-content__l-chapter__head__center__l-single-inner__form-group__input-default', placeholder: "例）山田"
+          = f.text_field :last_name, class: 'l-content__l-chapter__head__center__l-single-inner__form-group__input-default', placeholder: "例）彩"
         .l-content__l-chapter__head__center__l-single-inner__form-group
-          %label.l-content__l-chapter__head__center__l-single-inner__form-group__label お名前カナ
+          = f.label :first_name_kana, "お名前カナ", class: "l-content__l-chapter__head__center__l-single-inner__form-group__label"
           %span.l-content__l-chapter__head__center__l-single-inner__form-group__form-require 必須
-          %input.l-content__l-chapter__head__center__l-single-inner__form-group__input-default{name: "family_name_kana", placeholder: "例）ヤマダ", type: "text", value: ""}/
-          %input.l-content__l-chapter__head__center__l-single-inner__form-group__input-default{name: "first_name_kana", placeholder: "例）アヤ", type: "text", value: ""}/
+          = f.text_field :first_name_kana, class: 'l-content__l-chapter__head__center__l-single-inner__form-group__input-default', placeholder: "例）彩"
+          = f.text_field :last_name_kana, class: 'l-content__l-chapter__head__center__l-single-inner__form-group__input-default', placeholder: "例）アヤ"
         .l-content__l-chapter__head__center__l-single-inner__form-group
-          %label.l-content__l-chapter__head__center__l-single-inner__form-group__label{for: "zip_code"} 郵便番号
+          = f.label :zip_code, "郵便番号", class: "l-content__l-chapter__head__center__l-single-inner__form-group__label"
           %span.l-content__l-chapter__head__center__l-single-inner__form-group__form-arbitrary 任意
-          %input.l-content__l-chapter__head__center__l-single-inner__form-group__input-default{name: "zip_code", placeholder: "例）1234567", type: "text", value: ""}/
+          = f.text_field :postal_code, class: 'l-content__l-chapter__head__center__l-single-inner__form-group__input-default', placeholder: "例）1234567"
         .l-content__l-chapter__head__center__l-single-inner__form-group
-          %label.l-content__l-chapter__head__center__l-single-inner__form-group__label{for: "prefecture"} 都道府県
+          = f.label :prefecture, "都道府県", class: "l-content__l-chapter__head__center__l-single-inner__form-group__label"
           %span.l-content__l-chapter__head__center__l-single-inner__form-group__form-require 必須
           .l-content__l-chapter__head__center__l-single-inner__form-group__select-wrap
-            = select :nil, :prefecture_18n, User.prefectures_i18n.values,{},class: "l-content__l-chapter__head__center__l-single-inner__form-group__select-wrap__select-default"
-
+            = f.select :prefecture, User.prefectures.keys.map {|k| [I18n.t("enums.user.prefecture.#{k}"), k]}, {}, {class: "l-content__l-chapter__head__center__l-single-inner__form-group__select-wrap__select-default"}
             %i.l-content__l-chapter__head__center__l-single-inner__form-group__icon-arrow-bottom.fa.fa-angle-down
         .l-content__l-chapter__head__center__l-single-inner__form-group
-          %label.l-content__l-chapter__head__center__l-single-inner__form-group__label{for: "city"} 市区町村
+          = f.label :cities, "市区町村", class: "l-content__l-chapter__head__center__l-single-inner__form-group__label"
           %span.l-content__l-chapter__head__center__l-single-inner__form-group__form-require 必須
-          %input.l-content__l-chapter__head__center__l-single-inner__form-group__input-default{name: "city", placeholder: "例) 横浜市緑区", type: "text", value: ""}/
+          = f.text_field :cities, class: 'l-content__l-chapter__head__center__l-single-inner__form-group__input-default', placeholder: "例) 横浜市緑区"
         .l-content__l-chapter__head__center__l-single-inner__form-group
-          %label.l-content__l-chapter__head__center__l-single-inner__form-group__label{for: "address1_label"} 番地
+          = f.label :address, "番地", class: "l-content__l-chapter__head__center__l-single-inner__form-group__label"
           %span.l-content__l-chapter__head__center__l-single-inner__form-group__form-require 必須
-          %input.l-content__l-chapter__head__center__l-single-inner__form-group__input-default{name: "address1", placeholder: "例) 青山1−1−1", type: "text", value: ""}/
+          = f.text_field :address, class: 'l-content__l-chapter__head__center__l-single-inner__form-group__input-default', placeholder: "例) 青山1−1−1"
         .l-content__l-chapter__head__center__l-single-inner__form-group
-          %label.l-content__l-chapter__head__center__l-single-inner__form-group__label{for: "address2_label"} 建物名
+          = f.label :building_name, "建物名", class: "l-content__l-chapter__head__center__l-single-inner__form-group__label"
           %span.l-content__l-chapter__head__center__l-single-inner__form-group__form-arbitrary 任意
-          %input.l-content__l-chapter__head__center__l-single-inner__form-group__input-default{name: "address2", placeholder: "例) 柳ビル103", type: "text", value: ""}/
+          = f.text_field :building_name, class: 'l-content__l-chapter__head__center__l-single-inner__form-group__input-default', placeholder: "例) 柳ビル103"
         .l-content__l-chapter__head__center__l-single-inner__form-group
-          %label.l-content__l-chapter__head__center__l-single-inner__form-group__label{for: "birthday"} 生年月日
+          = f.label :birthday, "生年月日", class: "l-content__l-chapter__head__center__l-single-inner__form-group__label"
           %span.l-content__l-chapter__head__center__l-single-inner__form-group__form-require 必須
           %br/
           .l-content__l-chapter__head__center__l-single-inner__form-group__birthday-select-wrap
             .l-content__l-chapter__head__center__l-single-inner__form-group__select-wrap.l-content__l-chapter__head__center__l-single-inner__form-group__birthday-select-wrap__select-wrap
-              = raw sprintf(date_select(nil,:birthday, {use_month_numbers: true, start_year: 1900, end_year: (Time.now.year), default: Date.new(1989, 1, 1, ),date_separator: '%s'}, {class:"l-content__l-chapter__head__center__l-single-inner__form-group__birthday-select-wrap__select-wrap__select-default"}), '年 ', '月 ') + '日'
+              = raw sprintf(f.date_select(:birthday, {use_month_numbers: true, start_year: 1900, end_year: (Time.now.year), default: Date.new(1989, 1, 1, ),date_separator: '%s'}, {class: "l-content__l-chapter__head__center__l-single-inner__form-group__birthday-select-wrap__select-wrap__select-default"}), '年 ', '月 ') + '日'
               %i.l-content__l-chapter__head__center__l-single-inner__form-group__icon-arrow-bottom.first.fa.fa-angle-down
               %i.l-content__l-chapter__head__center__l-single-inner__form-group__icon-arrow-bottom.second.fa.fa-angle-down
               %i.l-content__l-chapter__head__center__l-single-inner__form-group__icon-arrow-bottom.third.fa.fa-angle-down
           %p.l-content__l-chapter__head__center__l-single-inner__form-group__form-info-text
             ※出品されたことがある、本人情報未登録のお客さまもご対象となります。
-          %input.l-content__l-chapter__head__center__l-single-inner__form-group__input-hidden{name: "birthday", type: "hidden", value: ""}/
-          .l-content__l-chapter__head__center__l-single-inner__form-group__clearfix
-        %button.l-content__l-chapter__head__center__l-single-inner__btn-default.btn-red{type: "submit"} 登録する
+        = f.submit "登録する",class: "l-content__l-chapter__head__center__l-single-inner__btn-default"
         .l-content__l-chapter__head__center__l-single-inner__form-group.text-right
           %p.l-content__l-chapter__head__center__l-single-inner__form-group__text
             %a.l-content__l-chapter__head__center__l-single-inner__form-group__text__link{href: "#", target: "_self"}
