@@ -6,7 +6,6 @@ class IdentificationsController < ApplicationController
 
   def update
     @user = User.find(params[:user_id])
-
     if @user.update(user_params)
       redirect_to user_identifications_path
     else
