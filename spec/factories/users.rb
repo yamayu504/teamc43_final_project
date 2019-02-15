@@ -12,7 +12,7 @@ FactoryGirl.define do
     first_name_kana        "マイ"
     phone_number           "09012341234"
     postal_code            "1234567"
-    prefecture             "0"
+    prefecture             0
     cities                 "沼田市"
     address                "新町1801-1"
     building_name          "乃木坂ビル46階"
