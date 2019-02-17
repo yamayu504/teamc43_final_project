@@ -1,0 +1,18 @@
+- products.each do |product|
+  %li
+    = link_to product_path (product.id) do
+      = image_tag product.p_images.first.image.url
+      .mypage-main__listings__body__text
+        .mypage-main__listings__body__text__title
+          = product.name
+        .mypage-main__listings__body__text__links
+          %i.far.fa-heart
+          %span
+            = "20#{}"
+          %i.far.fa-comment-alt
+          %span
+            = "20#{}"
+          %span.form__require.mypage-main__listings__body__text__links__label
+            = "公開停止中#{}"
+      %i.fas.fa-chevron-right
+
