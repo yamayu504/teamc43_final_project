@@ -4,8 +4,14 @@ Rails.application.routes.draw do
   get 'products/search' => 'products#search'
   resources :products, only:[:new, :show, :create]
   resources :users, only:[:index] do
-    resources :identifications, only:[:index]
-    resource :identifications, only:[:update]
+    resources :identifications, only:[:show,:index]
+    resource  :identifications, only:[:update]
+    resources  :listings, only:[:index]
+    resources  :in_progresses, only:[:index]
+    resources  :completeds, only:[:index]
+    resources  :purchases, only:[:index]
+    resources  :purchaseds, only:[:index]
+
   end
   devise_for :users
   get 'users/profile/:id' => 'users#show'
