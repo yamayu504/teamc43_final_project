@@ -2,11 +2,12 @@ Rails.application.routes.draw do
 
   root 'products#index'
   get 'products/search' => 'products#search'
-  resources :products, only:[:new, :show, :create]
+  resources :p_images, only:[:destroy]
+  resources :products, only:[:new, :show, :create, :destroy,:edit,:update]
   resources :users, only:[:index] do
     resources :identifications, only:[:show,:index]
     resource  :identifications, only:[:update]
-    resources  :listings, only:[:index]
+    resources  :listings, only:[:index,:show,:update,]
     resources  :in_progresses, only:[:index]
     resources  :completeds, only:[:index]
     resources  :purchases, only:[:index]
