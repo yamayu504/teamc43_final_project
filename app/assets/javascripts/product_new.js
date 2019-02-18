@@ -1,7 +1,6 @@
 $(document).on('turbolinks:load', function(){
     // product_idを取り込む
   var before_li = $('.product__sell__form__images__container__preview li').length;
-  console.log("before_li" + before_li);
   $('.product__sell__form__images__container__guide div').removeClass();
   $('.product__sell__form__images__container__guide div').addClass('have__image--' + before_li).trigger("create");
   //image_uploader
