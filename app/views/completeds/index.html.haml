@@ -9,14 +9,11 @@
     .mypage-main__listings__select
       %ul
         %li
-          = link_to user_listings_path(current_user.id) do
-            出品中
+          = link_to "出品中", user_listings_path(current_user.id)
         %li
-          = link_to user_in_progresses_path(current_user.id) do
-            取引中
+          = link_to "取引中",user_in_progresses_path(current_user.id)
         %li.active__tab
-          = link_to user_completeds_path(current_user.id) do
-            売却済
+          = link_to "売却済" user_completeds_path(current_user.id)
     .mypage-main__listings__body
       %ul
         = render "listings/listing_products", products: @products
