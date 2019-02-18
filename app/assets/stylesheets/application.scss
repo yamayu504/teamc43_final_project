@@ -26,5 +26,6 @@
 @import './mypage-logout';
 @import "./notifications";
 
-// マイページ商品一覧画面
-@import 'modules/mypage/listings'
+// マイページ商品一覧画面関連
+@import 'modules/mypage/listings';
+@import 'modules/mypage/listings_show';
