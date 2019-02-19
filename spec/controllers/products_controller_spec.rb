@@ -110,7 +110,6 @@ let(:brand) { create(:brand)}
         login user
       end
       it "destroy @product" do
-        binding.pry
         subject
         expect(response).to redirect_to(user_listings_path(user_id: user.id))
       end
