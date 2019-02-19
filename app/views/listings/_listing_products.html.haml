@@ -1,6 +1,6 @@
 - products.each do |product|
   %li
-    = link_to product_path (product.id) do
+    = link_to "/users/#{current_user.id}/listings/#{product.id}" do
       = image_tag product.p_images.first.image.url
       .mypage-main__listings__body__text
         .mypage-main__listings__body__text__title
