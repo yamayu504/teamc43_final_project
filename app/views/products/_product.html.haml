@@ -1,14 +1,17 @@
-.product__container__category__list__content
-  = link_to "#" do
-    = image_tag "test.jpg", alt: "商品画像", class:"product__container__pickedcategory__list__content__body__img"
-    .product__container__category__list__content__body
-      .product__container__category__list__content__body__name
-        %h3 サンプルだーよーーーー
-      .product__container__category__list__content__body__num
-        .product__container__category__list__content__body__num__price
-          = "¥1,000#{}"
-        .product__container__category__list__content__body__num__fav
-          %i.far.fa-heart
-          %span
-            = "20#{}"
-        %p.product_tax (税込)
+- products.each do |product|
+  .product__container__category__list__content
+    = link_to product_path(product.id) do
+      = image_tag product.p_images.first.image.url, alt: "商品画像", class:"product__container__pickedcategory__list__content__body__img"
+      .product__container__category__list__content__body
+        .product__container__category__list__content__body__name
+          %h3
+            = product.name
+        .product__container__category__list__content__body__num
+          .product__container__category__list__content__body__num__price
+            = product.price
+          .product__container__category__list__content__body__num__fav
+            %i.far.fa-heart
+            %span
+              / like昨日実装時に追記
+              = "20#{}"
+          %p.product_tax (税込)
