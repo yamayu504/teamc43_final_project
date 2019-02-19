@@ -69,8 +69,8 @@ class ProductsController < ApplicationController
   end
   def destroy
     product = Product.find(params[:id])
-      product.destroy if product.seller.id == current_user.id
-      redirect_to user_listings_path(user_id: current_user.id), notice: "商品が削除されました。"
+    product.destroy if product.seller.id == current_user.id
+    redirect_to user_listings_path(current_user), notice: "商品が削除されました。"
   end
 
   private
