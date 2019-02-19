@@ -1,0 +1,77 @@
+.product__buy
+  .product__buy__header
+    .product__buy__header__logo
+      = link_to root_path do
+        = image_tag "products/logo.svg"
+  .product__buy__container
+    .product__buy__container__top
+      購入を確定しますか？
+    .product__buy__container__main
+      .product__buy__container__main__item
+        = image_tag @product.p_images.first.image.url, alt: "商品画像", class:"product__buy___main__product__img"
+        .product__buy__container__main__item__name
+          = @product.name
+        .product__buy__container__main__item__price
+          %p
+            = "¥ #{@product.price}"
+          .product__buy__container__main__item__price__send
+            %span
+              送料込み
+        /ポイントは実装しないためdivのみ
+        .product__buy__container__main__item__point
+        .product__buy__container__main__item__pay
+          .product__buy__container__main__item__pay__label
+            支払い金額
+          .product__buy__container__main__item__pay__price
+            = "¥#{@product.price}"
+          / 後ほど、クレジットカード分岐追加
+        - if current_user.cities.present?
+          .product__buy__container__main__item__button
+            = link_to "購入する", product_buys_path(product_id: @product.id), class:"btn-default"
+        - else
+          .product__buy__container__main__item__button
+            .product__buy__container__main__item__alert
+              配送先と支払い方法の入力を完了してください。
+            .product__buy__container__main__item__button__disable.btn-default
+              購入する
+    .product__buy__container__address
+      .product__buy__container__address__inner
+        %h3
+          配送先
+        .product__buy__container__address__inner__text
+          = "〒#{current_user.postal_code.insert(3, "-")}"
+          %br
+          = t "enums.user.prefecture.#{current_user.prefecture}"
+          = "#{current_user.cities}"
+          %br
+          = "#{current_user.address}#{current_user.building_name}"
+        .product__buy__container__address__inner__link
+          = link_to "#" do
+            %span
+              変更する
+              %i.fas.fa-angle-right
+
+    .product__buy__container__credit
+      .product__buy__container__credit__inner
+        %h3
+          支払い方法
+        .product__buy__container__credit__inner__text
+        .product__buy__container__credit__inner__link
+          = link_to "#" do
+            %span
+              変更する
+              %i.fas.fa-angle-right
+
+  .product__buy__footer
+    .product__buy__footer__nav
+      %ul
+        %li
+          = link_to "プライバシーポリシー", "#"
+        %li
+          = link_to "メルカリ利用規約", "#"
+        %li
+          = link_to "特定商取引に関する表記", "#"
+    .product__buy__footer__copyright
+      = link_to root_path do
+        = image_tag "products/logo-gray.svg", id: "gray_logo-footer"
+      %p © 2019 Mercari
