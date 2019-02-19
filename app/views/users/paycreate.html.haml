@@ -1,0 +1,23 @@
+.paycreat-header
+  = render "products/product_header"
+
+.paycreate-wrapper.clreafix
+.paycreate-main
+  = form_tag(users_pay_path, method: :post, id: "charge-form") do
+    %script{src: "https://js.pay.jp/", type: "text/javascript"}
+    %span.charge-errors
+    %h4
+    %label{:for => "inputCardNumber"} カード番号
+    %input#card_number.form-control{:placeholder => "カード番号", :type => "text"}/
+    %br
+    %label{:for => "inputCVV"} CVV/セキュリティコード
+    %input#cvv.form-control{:placeholder => "CVV", :type => "text"}/
+    %br
+    %label{:for => "inputExp"} 有効期限
+    .row
+    %input#exp_year.form-control{:placeholder => "年", :type => "text"}/
+    %input#exp_month.form-control{:placeholder => "月", :type => "text"}/
+    %input{type: "submit", id: 'token', class: "submit_button btn-red", value: "登録する"}
+
+  .paycrate-side
+    = render 'users/mypage-nav'
