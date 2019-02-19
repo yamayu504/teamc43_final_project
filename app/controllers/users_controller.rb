@@ -40,11 +40,5 @@ class UsersController < ApplicationController
       flash[:notice] = "クレジットカードの登録に失敗しました"
       redirect_to action: :card
     end
-
-    # Payjp::Charge.create(
-    #   :amount => 10000,
-    #   :card => token_params[:payjpToken],
-    #   :currency => 'jpy',
-    # )
   end
 end
