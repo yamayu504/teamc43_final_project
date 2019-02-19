@@ -18,3 +18,5 @@
 public/uploads/p_image/image/*
 # secret.ymlを作成する。
 config/secrets.yml
+# payjpのkey
+config/initialized/setting.rb

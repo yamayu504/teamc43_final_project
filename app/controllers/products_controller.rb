@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   #updateメソッド時も利用？
   before_action :image_confirmation, only: [:create]
   def index
+    binding.pry
   end
   def new
     @product = Product.new
