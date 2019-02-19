@@ -1,5 +1,8 @@
-.paycreat-header
-  = render "products/product_header"
+.paycreate-header
+  .product__sell__header
+    .product__sell__header__logo
+      = link_to root_path do
+        = image_tag "products/logo.svg"
 
 .paycreate-wrapper.clreafix
 .paycreate-main
@@ -19,5 +22,17 @@
     %input#exp_month.form-control{:placeholder => "月", :type => "text"}/
     %input{type: "submit", id: 'token', class: "submit_button btn-red", value: "登録する"}
 
-  .paycrate-side
-    = render 'users/mypage-nav'
+.paycreate.footer
+  .product__sell__footer
+    .product__sell__footer__nav
+      %ul
+        %li
+          = link_to "プライバシーポリシー", "#"
+        %li
+          = link_to "メルカリ利用規約", "#"
+        %li
+          = link_to "特定商取引に関する表記", "#"
+    .product__sell__footer__copyright
+      = link_to root_path do
+        = image_tag "products/logo-gray.svg", id: "gray_logo-footer"
+      %p © 2019 Mercari
