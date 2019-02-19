@@ -99,6 +99,32 @@ let(:brand) { create(:brand)}
       expect(response).to render_template :show
     end
   end
+  describe 'GET #destroy' do
+    let(:product) { create(:product) }
+    subject{
+      get :destroy,
+      params: { id: 1 }
+    }
+    context 'login_user' do
+      before do
+        login user
+      end
+      it "destroy @product" do
+        binding.pry
+        subject
+        expect(response).to redirect_to(user_listings_path(user_id: user.id))
+      end
+
+      it "destroy @product" do
+        expect{ subject }.to change(Product, :count).by(1)
+      end
+    end
+    context 'not login_user' do
+      it "do not count up" do
+          expect{ subject }.not_to change(Product, :count)
+      end
+    end
+  end
 end
 
 
