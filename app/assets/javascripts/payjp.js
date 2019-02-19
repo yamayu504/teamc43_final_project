@@ -3,7 +3,6 @@ $(document).on('turbolinks:load', function(){
     var form = $("#charge-form");
     form.submit(function(e) {
       e.preventDefault();
-      console.log('aaa');
       Payjp.setPublicKey('pk_test_fa121efa0f38b35e9322e06a');
       // カード情報生成
       const card = {
