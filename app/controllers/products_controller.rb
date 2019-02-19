@@ -67,7 +67,11 @@ class ProductsController < ApplicationController
     @sizes      = Size.all
     @brands     = Brand.all
   end
-
+  def destroy
+    product = Product.find(params[:id])
+      product.destroy if product.seller.id == current_user.id
+      redirect_to user_listings_path(user_id: current_user.id), notice: "商品が削除されました。"
+  end
 
   private
   def create_params
