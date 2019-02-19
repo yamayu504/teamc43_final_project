@@ -7,16 +7,11 @@
     .product__detail__container__main__imgtable
       .product__detail__container__main__imgtable__left
         .product__detail__container__main__imgtable__left__top
-          = image_tag "test.jpg", class: "top_picture"
+          = image_tag "#{@images[0].image}", class: "top_picture"
         .product__detail__container__main__imgtable__left__bottom
-          .product__detail__container__main__imgtable__left__bottom__dot
-            = image_tag "test.jpg", class: "bottom_picture"
-          .product__detail__container__main__imgtable__left__bottom__dot
-            = image_tag "test.jpg", class: "bottom_picture"
-          .product__detail__container__main__imgtable__left__bottom__dot
-            = image_tag "test.jpg", class: "bottom_picture"
-          .product__detail__container__main__imgtable__left__bottom__dot
-            = image_tag "test.jpg", class: "bottom_picture"
+          - @images.each do |image|
+            .product__detail__container__main__imgtable__left__bottom__dot
+              = image_tag image.image, class: "bottom_picture"
       = render "products/table", product: @product
     .product__detail__container__main__price
       %span.product__detail__container__main__price__total
@@ -74,7 +69,11 @@
         = link_to "#" do
           = image_tag "sns_buttons/Pinterest.png",class:"sns_box"
   .product__detail__container__sellrelevant
-    = render "products/six_products"
+    =link_to "#{@user_products[0].seller.nickname}さんのその他の出品","#", class: "product__category__name"
+    .product__container__category__list
+      = render "products/product", products: @user_products
   .product__detail__container__categoryrelevant
-    = render "products/six_products"
+    =link_to "#{@similer_categories[0].category.name} その他の商品","#", class: "product__category__name"
+    .product__container__category__list
+      = render "products/product", products: @similer_categories
 = render "products/product_footer"

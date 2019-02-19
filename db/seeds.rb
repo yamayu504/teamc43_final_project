@@ -20,6 +20,25 @@ user = User.new(
   profile: '四次元から来ましたマヨラー星人、19歳、まいやんこと、白石麻衣です'
   )
 user.save!
+user = User.new(
+  nickname: 'なな',
+  email: "nana_komatsu@email.com",
+  password: '7777777',
+  password_confirmation: '7777777',
+  first_name: '小松',
+  last_name: 'なな',
+  last_name_kana: 'コマツ',
+  first_name_kana: 'ナナ',
+  phone_number: '09011113333',
+  postal_code: '1234567',
+  prefecture: 0,
+  cities: '千代田区',
+  address: '新町',
+  building_name: '乾きが最高。',
+  birthday: '19920820',
+  profile: '小松奈々です'
+  )
+user.save!
 end
 
 unless Brand.exists?

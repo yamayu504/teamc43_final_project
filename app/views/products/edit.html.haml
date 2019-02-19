@@ -4,7 +4,7 @@
       = link_to root_path do
         = image_tag "products/logo.svg"
   .product__sell__form
-    = form_for @product, html: {id:'new_product'} do |f|
+    = form_for @product, html: {id:'new_product__edit'} do |f|
       .product__sell__form__title
         %h1 商品の情報を入力
       .product__sell__form__images
@@ -17,6 +17,15 @@
         .product__sell__form__images__container
           .product__sell__form__images__container__preview
             %ul
+              - @product.p_images.each do |p_image|
+                %li{data: {id: p_image.id}}
+                  = image_tag p_image.image.url
+                  .product__sell__form__images__container__preview__box
+                    .product__sell__form__images__container__preview__box__edit
+                      編集
+                    %div
+                      %a.product__sell__form__images__container__preview__box__delete
+                        削除
           .product__sell__form__images__container__guide
             .have__image--0
               %h5 ドラッグ&ドロップ<br>でファイルをアップロード
@@ -29,14 +38,14 @@
               商品名（必須40文字まで）
               %span.form__require
                 必須
-          = f.text_field "name", placeholder: "商品名（必須40文字まで）", id: "product_name", class: "input__default"
+          = f.text_field "name", placeholder: "商品名（必須40文字まで）", id: "product_name",value: @product.name, class: "input__default"
         .product__sell__form__sellcontent__explain
           .product__sell__form__sellcontent__explain__head__label
             %label.form__label
               商品の説明
               %span.form__require
                 必須
-          = f.text_area "description", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。",id: "product_explain", class: "textarea-default"
+          = f.text_area "description", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。",value: @product.description ,id: "product_explain", class: "textarea-default"
         .product__sell__form__sellcontent__detail
           %h5 商品の詳細
           .product__sell__form__sellcontent__detail__dropdown
@@ -46,23 +55,26 @@
                 %span.form__require
                   必須
               .product__sell__form__sellcontent__detail__dropdown__category__default
-                = f.select :category_id, @choices, {selected: 0}, {class: "select-default"}
+                = f.select "category_id", @categories.map{ |c| [ c.name, c.id ]}, {},{class: "select-default" }
               .product__sell__form__sellcontent__detail__dropdown__category__child.category__children
-
+                = f.select "category_id" , options_from_collection_for_select(@categories, :id, :name, {:selected => @product.category_id}),{},{class: "select-default"}
               .product__sell__form__sellcontent__detail__dropdown__category__grandson.category__children
-
+                = f.select "category_id" , options_from_collection_for_select(@categories, :id, :name, {:selected => @product.category_id}),{},class: "select-default"
               .product__sell__form__sellcontent__detail__dropdown__category__size.size__brand__remover
-
+                = f.select :size, options_from_collection_for_select(@sizes, :id, :size, {:selected => @product.size}),{},{class: "select-default"}
               .product__sell__form__sellcontent__detail__dropdown__category__brand.size__brand__remover
-
+                %label.form__label
+                  ブランド
+                  %span.form__arbitary
+                    任意
+                =f.text_field "product[brand_id]", class:"input__default", id:"product_brand_id", autocomplete:"off", value: @product.brand.name
               .product__sell__form__sellcontent__detail__dropdown__category__brand__list
-
             .product__sell__form__sellcontent__detail__dropdown__condition
               %label.form__label
                 商品の状態
                 %span.form__require
                   必須
-              = f.select :condition , Product.conditions.keys.to_a, {},{class: "select-default"}
+              = f.select "condition" , Product.conditions.keys.to_a,{},{class: "select-default"}
         .product__sell__form__sellcontent__delivery
           %h5 発送について
           .product__sell__form__sellcontent__delivery__dropdown
@@ -77,7 +89,7 @@
                 発送料の負担
                 %span.form__require
                   必須
-              = f.select "shipping_method", Product.shipping_methods.keys.to_a,{}, {class:"select-default"}
+              = f.select "shipping_method", Product.shipping_methods.keys.to_a,{},{class:"select-default"}
             .product__sell__form__sellcontent__delivery__dropdown__shippingarea
               %label.form__label
                 発送元の地域
@@ -101,17 +113,19 @@
                     必須
                 .product__sell__form__sellcontent__price__form__right
                   %p ¥
-                  = f.text_field "price", placeholder: "例）300",class: "input__default"
+                  = f.text_field "price", placeholder: "例）300",class: "input__default",value: @product.price
               %li.border__top
                 .product__sell__form__sellcontent__price__form__commitionleft
                   販売手数料(10%)
                 .product__sell__form__sellcontent__price__form__commitionright
-                  %span -
+                  %span
+                    = (@product.price * 0.1).round
               %li.border__top
                 .product__sell__form__sellcontent__price__form__totalleft
                   販売利益
                 .product__sell__form__sellcontent__price__form__totalright
-                  %span -
+                  %span
+                    = (@product.price * 0.9).round
         .product__sell__form__sellcontent__submit
           %h5 禁止されている出品、行為を必ずご確認ください。またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。また、出品をもちまして加盟店規約に同意したことになります。
           .product__sell__form__sellcontent__submit__done

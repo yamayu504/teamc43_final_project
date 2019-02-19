@@ -17,27 +17,27 @@
         いいね！一覧
         %i.fas.fa-chevron-right
     %li
-      = link_to "#",class: "mypage-nav__list__item" do
+      = link_to new_product_path,class: "mypage-nav__list__item" do
         出品する
         %i.fas.fa-chevron-right
     %li
-      = link_to "#",class: "mypage-nav__list__item" do
+      = link_to user_listings_path(current_user.id),class: "mypage-nav__list__item" do
         出品した商品-出品中
         %i.fas.fa-chevron-right
     %li
-      = link_to "#",class: "mypage-nav__list__item" do
+      = link_to user_in_progresses_path(current_user.id),class: "mypage-nav__list__item" do
         出品した商品-取引中
         %i.fas.fa-chevron-right
     %li
-      = link_to "#",class: "mypage-nav__list__item" do
+      = link_to user_completeds_path(current_user.id) ,class: "mypage-nav__list__item" do
         出品した商品-売却済
         %i.fas.fa-chevron-right
     %li
-      = link_to "#",class: "mypage-nav__list__item" do
+      = link_to user_purchases_path(current_user.id),class: "mypage-nav__list__item" do
         購入した商品-取引中
         %i.fas.fa-chevron-right
     %li
-      = link_to "#",class: "mypage-nav__list__item" do
+      = link_to user_purchaseds_path(current_user.id),class: "mypage-nav__list__item" do
         購入した商品-過去の取引
         %i.fas.fa-chevron-right
     %li
