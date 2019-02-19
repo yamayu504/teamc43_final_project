@@ -28,10 +28,9 @@
     = link_to "商品の編集", edit_product_path( @product.id), class:".statuschange__edit "
     %p or
     - if @product.for_sale == 0
-      = link_to "出品を再開する",user_listing_path(id: @product.id, user_id: current_user.id), method: :update, class:"statschange__restart"
+      = link_to "出品を再開する",user_listing_path(id: @product.id, user_id: current_user.id), method: :patch, class:"statschange__restart"
     - else
       = link_to "出品を一旦停止する",user_listing_path(id: @product.id, user_id: current_user.id), method: :patch, class:"statuschange__close"
-      / = link_to "出品を一旦停止する",{ controller: listings, action: update, id: @product.id, user_id: current_user.id }, class:"statuschange__close"
     = link_to "この商品を削除する",product_path( @product.id),method: :delete, class:"statuschange__delete"
   / コメント機能実装時に実装
   / .product__detail__container__comment
