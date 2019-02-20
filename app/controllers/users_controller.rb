@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :sign_in_confirmation
   def index
   end
   def create
@@ -39,6 +40,14 @@ class UsersController < ApplicationController
     else
       flash[:notice] = "クレジットカードの登録に失敗しました"
       redirect_to action: :card
+    end
+  end
+
+  private
+  def sign_in_confirmation
+    if user_signed_in?
+    else
+      redirect_to new_user_session_path
     end
   end
 end
