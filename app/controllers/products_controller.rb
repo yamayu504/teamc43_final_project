@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
   before_action :set_product, only:[:show,:update, :edit, :destroy]
   before_action :sign_in_confirmation, only:[:new]
   def index
-    brand_ids    = Product.group(:brand_id).order('count_brand_id DESC').limit(2).count(:brand_id).keys
+    brand_ids    = Product.group(:brand_id).order('count_brand_id DESC').where.not(brand_id: nil).limit(2).count(:brand_id).keys
     category_ids = Product.group(:category_id).order('count_category_id DESC').limit(2).count(:category_id).keys
     @brands      = brand_ids.map { |id| Brand.find(id) }
     @categories  = category_ids.map { |id| Category.find(id) }
