@@ -26,4 +26,18 @@
   background-color: rgb(170,170,170);
   border: 1px solid rgb(170,170,170);
   }
+  &__completed{
+    vertical-align: middle;
+    width:604px;
+    height:48px;
+    margin:16px 0;
+    background-color: rgb(170,170,170);;
+    border: 1px solid rgb(170,170,170);
+    color: #fff;
+    text-align: center;
+    display: block;
+    width: 100%;
+    line-height: 48px;
+    font-size: 14px;
+  }
 }

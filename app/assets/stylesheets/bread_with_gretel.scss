@@ -1,0 +1,25 @@
+.bread_with_gretel{
+  background-color:white;
+  width:100%;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  border-top:1px solid $background-gray;
+  .breadcrumbs{
+    font-size:14px;
+    padding: 12px 12px 10px;
+    margin:0 14%;
+    #text{
+      font-size:14px;
+    }
+    a{
+      font-size:14px;
+      &:hover{
+        border-bottom:solid 0.1em gray;
+        color:gray;
+      }
+    }
+    span{
+        font-size:14px;
+        font-weight:bold;
+    }
+  }
+}

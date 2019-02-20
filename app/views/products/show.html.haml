@@ -1,5 +1,7 @@
 = render "products/sell_button"
 = render "products/product_header"
+- breadcrumb :product_show, @product
+= render "layouts/bread_with_gretel"
 .product__detail__container
   .product__detail__container__main
     %h5.item-name
@@ -7,7 +9,10 @@
     .product__detail__container__main__imgtable
       .product__detail__container__main__imgtable__left
         .product__detail__container__main__imgtable__left__top
-          = image_tag "#{@images[0].image}", class: "top_picture"
+          .product__detail__container__main__imgtable__left__top__img
+            = image_tag "#{@images[0].image}", class: "top_picture"
+            - if @product.deal == 1
+              = render "layouts/triangle/soldout"
         .product__detail__container__main__imgtable__left__bottom
           - @images.each do |image|
             .product__detail__container__main__imgtable__left__bottom__dot
@@ -21,7 +26,11 @@
       %span.shipping_fee
         送料込み
     .product__detail__container__main__buy
-      = link_to "購入画面に進む","#", class:"product__detail__container__main__buy"
+      - if @product.deal == 0
+        = link_to "購入画面に進む",product_buys_path(@product.id), class:"product__detail__container__main__buy"
+      - else
+        .product__detail__container__main__buy__completed
+          売却済の商品です
     .product__detail__container__main__description
       %p
         = @product.description
@@ -48,7 +57,7 @@
       = link_to "#" do
         %span.arrow
           %i.fas.fa-angle-left
-        前の商品ですー。
+        前の商品ですー
     %li.product__detail__container__prenext__next
       = link_to "#" do
         次の商品ですー

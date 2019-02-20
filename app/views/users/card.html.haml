@@ -1,0 +1,13 @@
+.card-header
+  = render "products/product_header"
+  - breadcrumb :users
+  = render "layouts/bread_with_gretel"
+- if flash[:notice]
+  %p= flash[:notice]
+
+.card-wrapper.clreafix
+  .card-main
+    .logout-main__btn
+      = link_to 'クレジットカードを追加する',{ controller: :users, action: :paycreate }, class: "btn-default card-main__btn--red"
+  .card-side
+    = render 'users/mypage-nav'
