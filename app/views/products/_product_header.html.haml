@@ -18,18 +18,26 @@
             = link_to "ブランドから探す","#"
       .product__header__navbar__right
         %ul
-          %li
-            = link_to users_path do
-              = image_tag "/images/mypage/member_photo_noimage.png", class: "profile_icon",size: "36x36"
-              マイページ
-          %li
-            = link_to users_path do
-              %span.nav
-                = icon('far', 'bell')
-              お知らせ
-          %li
-            = link_to users_path do
-              %span.nav
-                %i.fas.fa-check
-              やることリスト
+          - if user_signed_in?
+            %li
+              = link_to users_path do
+                = image_tag "/images/mypage/member_photo_noimage.png", class: "profile_icon",size: "36x36"
+                マイページ
+            %li
+              = link_to users_path do
+                %span.nav
+                  = icon('far', 'bell')
+                お知らせ
+            %li
+              = link_to users_path do
+                %span.nav
+                  %i.fas.fa-check
+                やることリスト
+          - else
+            %li
+              = link_to "ログイン", new_user_session_path, id:"sign_in_button"
+            %li
+              = link_to "新規会員登録", new_user_registration_path, id:"sign_up_button"
+
+
 
