@@ -39,14 +39,12 @@ crumb :identification do |user|
   link "本人情報の登録",user_identifications_path(user)
   parent :users
 end
-
 crumb :product_show do |product|
   link product.name ,product_path(product.id)
   parent :users
 end
-
 crumb :profiles do |user|
-  link "プロフィール編集画面",user_registration_path(user)
+  link "プロフィール編集画面",users_path(user)
   parent :users
 end
 crumb :cards do

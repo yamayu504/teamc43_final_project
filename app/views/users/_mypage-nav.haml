@@ -69,7 +69,7 @@
   %h3.mypage-nav__head 設定
   %ul.mypage-nav__list
     %li
-      = link_to "/users/profile/#{current_user.id}",class: "mypage-nav__list__item" do
+      = link_to users_path(current_user.id),class: "mypage-nav__list__item" do
         プロフィール
         %i.fas.fa-chevron-right
     %li
