@@ -28,7 +28,7 @@ class UsersController < ApplicationController
     # payjpに顧客登録して顧客IDをもらう
     customer = Payjp::Customer.create(card: token_id)
     #ログインユーザーのcustmer_idカラムにtokenを入れて更新する、そして結果をresultに代入
-    result = User.find(current_user.id).update(customer_id: customer.id)
+    result = current_user.update(customer_id: customer.id)
     #updateが成功したかどうかで場合分け
     if result == true
       flash[:notice] = "クレジットカードの登録が成功しました"
