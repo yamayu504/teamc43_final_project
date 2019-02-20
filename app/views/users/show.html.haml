@@ -1,7 +1,7 @@
 .profile-header
   = render "products/sell_button"
   = render "products/product_header"
-  - breadcrumb :profiles, current_user.id
+  - breadcrumb :profiles, @user.id
   = render "layouts/bread_with_gretel"
 .profile-wrapper.clearfix
   .profile-main

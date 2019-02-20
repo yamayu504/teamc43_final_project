@@ -41,14 +41,16 @@ crumb :identification do |user|
 end
 
 crumb :product_show do |product|
-  link product.name ,user_identifications_path(product.id)
+  link product.name ,product_path(product.id)
   parent :users
 end
 
-# /users/1/listings/2
-# 保留
 crumb :profiles do |user|
   link "プロフィール編集画面",user_registration_path(user)
+  parent :users
+end
+crumb :cards do
+  link "クレジットカード登録",users_card_path
   parent :users
 end
 
