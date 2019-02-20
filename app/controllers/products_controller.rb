@@ -99,4 +99,10 @@ class ProductsController < ApplicationController
       redirect_to new_user_session_path
     end
   end
+    def update_confirmation
+    if @product.p_images.present?
+    else
+      redirect_to edit_product_path(@product.id), alert:"画像が登録されいません。"
+    end
+  end
 end

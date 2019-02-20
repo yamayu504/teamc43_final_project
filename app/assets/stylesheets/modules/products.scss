@@ -245,10 +245,13 @@ a#sign_up_button{
           display:inline-block;
           margin:0 20px 20px 0;
           float:left;
-          img.product__container__pickedcategory__list__content__body__img{
-            width:213px;
-            height:220px;
-            object-fit: cover;
+          &__img{
+            position: relative;
+            img{
+              width:213px;
+              height:220px;
+              object-fit: cover;
+            }
           }
           &__body{
             width:181px;

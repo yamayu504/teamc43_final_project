@@ -15,10 +15,13 @@
         &__top{
           width:300px;
           height:300px;
+          &__img{
+          position: relative;
           img{
-          object-fit: cover;
-          width:300px;
-          height:300px;
+            object-fit: cover;
+            width:300px;
+            height:300px;
+            }
           }
         }
         &__bottom{
@@ -114,6 +117,20 @@
         color: #fff;
         text-align: center;
         display: inline-block;
+      }
+      &__completed{
+        vertical-align: middle;
+        font-size:24px;
+        line-height: 60px;
+        vertical-align: middle;
+        width:604px;
+        height:60px;
+        margin:16px 0;
+        background-color: rgb(170,170,170);;
+        border: 1px solid rgb(170,170,170);
+        color: #fff;
+        text-align: center;
+        display: block;
       }
     }
     &__description{
