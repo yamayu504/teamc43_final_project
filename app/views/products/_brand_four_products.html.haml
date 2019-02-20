@@ -2,6 +2,6 @@
   =link_to root_path, class: "product__category__name"do
     = brand.name
   .product__container__category__list
-    = render "products/product", products: Product.where(brand_id: brand.id).limit(4)
+    = render "products/product", products: Product.where(brand_id: brand.id, for_sale: 1).limit(4)
   .product__container__category__alllink
     = link_to "全ての商品を見る", "#"
