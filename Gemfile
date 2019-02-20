@@ -80,3 +80,4 @@ gem "i18n", "1.5.3"
 gem 'devise'
 gem 'enum_help'
 gem 'payjp'
+gem 'gretel'
