@@ -1,11 +1,10 @@
 class BuysController < ApplicationController
   before_action :sign_in_confirmation
   def index
+    @product = Product.find(params[:product_id])
     if @product.seller_id == current_user.id
       redirect_to root_path
     else
-      @product = Product.find(params[:product_id])
-    end
   end
   def update
     @product = Product.find(params[:product_id])
