@@ -1,6 +1,8 @@
 .mypage-header
   = render "products/sell_button"
   = render "products/product_header"
+  - breadcrumb :users
+  = render "layouts/bread_with_gretel"
 .mypage-wrapper
   .mypage-main
     =render "users/mypage-user-icon"

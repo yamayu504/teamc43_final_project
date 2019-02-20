@@ -1,13 +1,9 @@
 - if @user.errors.any?
   = render 'layouts/notifications'
-
 .mypage-header
   = render "products/product_header"
-
-%nav.bread-crumbs
-  %ul
-    %li メルカリ > マイページ > 本人情報の登録
-
+  - breadcrumb :identification, current_user.id
+  = render "layouts/bread_with_gretel"
 %main.l-container
   .l-content
     %section.l-content__l-chapter

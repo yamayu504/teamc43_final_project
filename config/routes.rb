@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   end
   devise_for :users
-  get 'users/profile/:id' => 'users#show'
+  get 'users/:id' => 'users#show'
   get 'users/logout'      => 'users#logout'
   get 'users/card'        => 'users#card'
   get 'users/card/create' => 'users#paycreate'
