@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     # ログイン中ユーザーのレコード獲得
     customer_id = customer.id
     user = User.find(current_user.id)
-  #ログインユーザーのcustmer_idカラムにtokenを入れて更新する、そして結果をresultに代入
+    #ログインユーザーのcustmer_idカラムにtokenを入れて更新する、そして結果をresultに代入
     result = user.update(customer_id: customer.id)
     #updateが成功したかどうかで場合分け
     if result == true

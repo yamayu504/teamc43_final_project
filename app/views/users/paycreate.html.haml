@@ -5,22 +5,36 @@
         = image_tag "products/logo.svg"
 
 .paycreate-wrapper.clreafix
-.paycreate-main
-  = form_tag(users_pay_path, method: :post, id: "charge-form") do
-    %script{src: "https://js.pay.jp/", type: "text/javascript"}
-    %span.charge-errors
-    %h4
-    %label{:for => "inputCardNumber"} カード番号
-    %input#card_number.form-control{:placeholder => "カード番号", :type => "text"}/
-    %br
-    %label{:for => "inputCVV"} CVV/セキュリティコード
-    %input#cvv.form-control{:placeholder => "CVV", :type => "text"}/
-    %br
-    %label{:for => "inputExp"} 有効期限
-    .row
-    %input#exp_year.form-control{:placeholder => "年", :type => "text"}/
-    %input#exp_month.form-control{:placeholder => "月", :type => "text"}/
-    %input{type: "submit", id: 'token', class: "submit_button btn-red", value: "登録する"}
+  .paycreate-main
+    %h2.paycreate-main__header クレジットカード情報入力
+    = form_tag(users_pay_path, method: :post, id: "charge-form", class: "paycreate-main__form") do
+      %script{src: "https://js.pay.jp/", type: "text/javascript"}
+      %label{for: "card_number"} カード番号
+      %span.paycreate-main__form--required 必須
+      %br
+      %input#card_number.paycreate-main__form--control{:placeholder => "半角数字のみ", :type => "text", maxlength: 19,required: ""}/
+      %br
+      = image_tag "creditcard-logo.png", size: "300x20"
+      %br
+      %label{for: "exp_month"} 有効期限
+      %span.paycreate-main__form--required 必須
+      %br
+      = select_tag 'exp_month', options_for_select({"01" => 1, "02" => 2, "03" => 3, "04" => 4, "05" => 5, "06" => 6, "07" => 7, "08" => 8, "09" => 9, "10" => 10, "11" => 11,"12" => 12}), {class: "paycreate-main__form--control"}
+      %span 月
+      %br
+      = select_tag 'exp_year', options_for_select({"19" => 2019, "20" => 2020, "21" => 2021, "22" => 2022, "23" => 2023, "24" => 2024, "25" => 2025, "26" => 2026, "27" => 2027, "28" => 2028, "29" => 2029}),{class: "paycreate-main__form--control"}
+      %span 年
+      %br
+      %label{ for: "cvv"} セキュリティコード
+      %span.paycreate-main__form--required 必須
+      %br
+      %input#cvv.paycreate-main__form--control{:placeholder => "カード背面4桁もしくは3桁の番号", :type => "text",required: "", maxlength: 4, validate: "number"}/
+      %br
+      .signup-seqcode
+        .signup-seqcode-text
+          %span.form-question ?
+          カード裏面の番号とは？
+      %input{type: "submit", id: 'token', class: "submit_button btn-red", value: "追加する"}
 
 .paycreate.footer
   .product__sell__footer
