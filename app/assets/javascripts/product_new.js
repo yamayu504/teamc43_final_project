@@ -69,11 +69,10 @@ $(document).on('turbolinks:load', function(){
         dataType:   'json',
       })
       .done(function(data){
-      alert('画像を削除しました。');
        before_li = before_li - 1
       })
       .fail(function(XMLHttpRequest, textStatus, errorThrown){
-        alert('画像を削除失敗しました。一度ページを読み込み直してください。');
+        alert('画像の削除失敗しました。一度ページを読み込み直してください。');
       });
     }else{
 
@@ -86,7 +85,7 @@ $(document).on('turbolinks:load', function(){
   });
 
   // newの際の分岐
-  $(document).on('submit','#new_product', function(e){
+  $('#new_product').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData($(this).get(0));
     var i = 0
@@ -105,8 +104,8 @@ $(document).on('turbolinks:load', function(){
     })
     .done(function(data){
       // 正しく、遷移した場合の処理
-      window.location.href = "/";
       alert('出品に成功しました！');
+      window.location.href = "/";
     })
     // failは通信処理ができなかった時の処理
     .fail(function(XMLHttpRequest, textStatus, errorThrown){
@@ -117,15 +116,15 @@ $(document).on('turbolinks:load', function(){
     });
   });
   // updateの時の動き。
-  $(document).on('submit','#new_product__edit', function(e){
+  $('#new_product__edit').on('submit', function(e){
     e.preventDefault();
-    console.log("editの方だよー")
     var formData = new FormData($(this).get(0));
     var i = 0
     files_array.forEach(function(p_file){
      formData.append("p_image[p_images][]" , p_file)
      i = i + 1
     });
+     var url = location.href
      var product_id = url.match(/products\/(\d+)\/edit/)
      var edit_url = "/products/" + product_id[1]
     $.ajax({
