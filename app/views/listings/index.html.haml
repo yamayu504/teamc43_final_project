@@ -2,6 +2,8 @@
 .mypage-header
   = render "products/sell_button"
   = render "products/product_header"
+  - breadcrumb :listings, current_user.id
+  = render "layouts/bread_with_gretel"
 .mypage-wrapper
   / ここから山中加筆
   .mypage-main__listings
