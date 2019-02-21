@@ -76,7 +76,7 @@ class ProductsController < ApplicationController
 
   private
   def create_params
-      product_params = params.require(:product).permit(:name, :description,:category_id, :size, :brand_id, :condition, :select_shipping_fee, :shipping_method, :area, :shipping_date, :price).merge(seller_id: 1)
+      product_params = params.require(:product).permit(:name, :description,:category_id, :size, :brand_id, :condition, :select_shipping_fee, :shipping_method, :area, :shipping_date, :price).merge(seller_id: current_user.id)
       # 新規作成画面がないためseller_idは仮置き
       product_params[:brand_id] = Brand.find_by(name: product_params[:brand_id]).id if product_params[:brand_id].present?
       return product_params
