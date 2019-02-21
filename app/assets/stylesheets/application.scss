@@ -27,6 +27,13 @@
 @import "./notifications";
 @import "./card";
 
+@import "components/registrations-new";
+@import "components/registrations-header";
+@import "components/registrations-main";
+@import "components/registrations-footer";
+
+@import "components/login";
+
 // マイページ商品一覧画面関連
 @import 'modules/mypage/listings';
 @import 'modules/mypage/listings_show';

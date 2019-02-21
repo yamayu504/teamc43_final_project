@@ -1,0 +1,12 @@
+.main.sms-confirmation
+  .main-container
+    .main-head--slim 認証番号の確認
+    .member-info-inner
+      .member-info-content
+        .member-info-content__form.first-child
+          = label :nil, "認証番号", class: "member-info-content__form__label"
+          = text_field :nil, :nil, class: 'member-info-content__form__input', placeholder: "認証番号を入力"
+        .member-info-content__form__text SMSで届いた認証番号を登録してください。
+        %input.member-info-content__btn.to-step4{"data-disable-with": "認証して完了",name: "commit", type: "text", value: "認証して完了"}
+
+

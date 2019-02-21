@@ -1,0 +1,253 @@
+.main-login{
+  display: block;
+  .main-container{
+    background: #fff;
+    max-width: none;
+    width: 456px;
+    margin: 0 auto;
+    .main-head{
+        padding: 40px 64px;
+        line-height: 1.5;
+        text-align: center;
+      &--slim{
+        font-size: 24px;
+        padding: 8px 24px;
+        font-weight: bold;
+        line-height: 1.5;
+        text-align: center;
+      }
+      #btn-registration{
+        display: block;
+        margin: 8px 0 0;
+        border: 1px solid #0099e8;
+        background: #0099e8;
+        color: #fff;
+        line-height: 40px;
+        box-sizing: border-box;
+      }
+    }
+    .main-login-inner{
+      border-top: 1px solid #f5f5f5;
+      padding: 32px 64px;
+        &--login{
+        border-top: none;
+        }
+      .main-content{
+        max-width: 320px;
+        margin: 0 auto;
+        .btn-wrapper{
+          position: relative;
+        }
+        #btn-mail{
+          position: relative;
+          background: #eee;
+          color: #000;
+        }
+        #btn-facebook{
+          position: relative;
+          margin: 16px 0 0;
+          background: #385185;
+          color: #fff;
+        }
+        #btn-google{
+          position: relative;
+          margin: 16px 0 0;
+          background: #dc4e41;
+          color: #fff;
+        }
+        i{
+          position: absolute;
+          top: 50%;
+          left: 16px;
+          transform: translate(0, -50%);
+          font-size: 20px;
+        }
+        .fa{
+          color: #ccc;
+        }
+      }
+    }
+    .login-inner{
+      padding: 24px 64px 32px;
+      .member-info-content{
+        max-width: 320px;
+        margin: 0 auto;
+        .first-child{
+          margin: 0;
+        }
+        &__form{
+          margin: 24px 0 0;
+          .error-message{
+            color: red;
+          }
+          &__label{
+            font-weight: 600;
+            display: inline-block;
+          }
+          &__require{
+            background: #ea352d;
+            margin: 0 0 0 8px;
+            padding: 2px 4px;
+            border-radius: 2px;
+            color: #fff;
+            font-size: 12px;
+            vertical-align: top;
+          }
+          &__arbitrary{
+            background: #ccc;
+            margin: 0 0 0 8px;
+            padding: 2px 4px;
+            border-radius: 2px;
+            color: #fff;
+            font-size: 12px;
+            vertical-align: top;
+          }
+          &__input{
+            width: 100%;
+            margin: 8px 0 0;
+            height: 48px;
+            padding: 10px 16px 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: #fff;
+            line-height: 1.5;
+            font-size: 16px;
+            box-sizing: border-box;
+          }
+          &__sub-head{
+            font-size: 16px;
+            font-weight: bold;
+          }
+          &__text{
+            margin: 8px 0 0;
+            padding: 0;
+            line-height: 1.5;
+          }
+          &__select{
+              position: relative;
+              width: 180px;
+              font-size: 16px
+              ;
+            &__tab{
+              width: 110px;
+              display: inline-block;
+              margin: 8px 0 0;
+              position: relative;
+              background: #fff;
+              position: relative;
+              z-index: 2;
+              height: 48px;
+              padding: 0 16px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              background: 0;
+              font-size: 16px;
+              line-height: 1.5;
+              cursor: pointer;
+              -webkit-appearance: none;
+            }
+            &__bottom:before{
+              font-size: 3em;
+            }
+            &__bottom{
+              position: absolute;
+              right: 44px;
+              z-index: 2;
+              color: #888;
+              font-size: 8px;
+              -webkit-transform: translate(0, -50%);
+            }
+            .first{
+              top: 34px;
+            }
+            .second{
+              top: 92px;
+            }
+            .third{
+              top: 150px;
+            }
+          }
+          &__wrap{
+            margin: 8px 0 0;
+            position: relative;
+            background: #fff;
+            &__default{
+              width: 100%;
+              position: relative;
+              z-index: 2;
+              height: 48px;
+              padding: 0 16px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              background: 0;
+              font-size: 16px;
+              line-height: 1.5;
+              cursor: pointer;
+              outline: 0;
+              -webkit-appearance: none;
+              box-sizing: border-box;
+            }
+            &__bottom:before{
+              font-size: 3em;
+            }
+            &__bottom{
+              position: absolute;
+              right: 20px;
+              top: 24px;
+              z-index: 2;
+              color: #888;
+              font-size: 8px;
+              -webkit-transform: translate(0, -50%);
+            }
+          }
+        }
+        &__text{
+          margin: 8px 0 0;
+          line-height: 1.5;
+          color: #888;
+        }
+        &__form__paragraph{
+          margin: 0;
+          padding: 0;
+          line-height: 1.5;
+          text-align: center;
+          &__link{
+            color: #0099e8;
+            text-decoration: none;
+          }
+        }
+        &__btn{
+          background: #ea352d;
+          border: 1px solid #ea352d;
+          color: #fff;
+          display: block;
+          width: 100%;
+          line-height: 48px;
+          font-size: 14px;
+          cursor: pointer;
+          text-align: center;
+          margin: 24px 0 0;
+        }
+        &__text-left{
+          margin: 40px 0 0;
+          &__paragraph{
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+            text-align: left;
+            &__link{
+              color: #0099e8;
+              text-decoration: none;
+            }
+          }
+        }
+        &__text-center{
+          margin: 8px 0 0;
+          line-height: 1.5;
+          text-align: center;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
