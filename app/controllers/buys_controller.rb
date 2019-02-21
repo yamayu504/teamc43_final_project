@@ -16,6 +16,7 @@ class BuysController < ApplicationController
       @product.save
     # pay.jp側に売上として反映させる
     Payjp.api_key = PAYJP_SECRET_KEY
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     Payjp::Charge.create(
       amount: @product.price,
       customer: current_user.customer_id,
