@@ -72,7 +72,6 @@ $(document).on('turbolinks:load', function(){
        before_li = before_li - 1
       })
       .fail(function(XMLHttpRequest, textStatus, errorThrown){
-        alert('画像の削除失敗しました。一度ページを読み込み直してください。');
       });
     }else{
 
