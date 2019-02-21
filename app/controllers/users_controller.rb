@@ -21,7 +21,7 @@ class UsersController < ApplicationController
 
   def pay
     require 'payjp'
-    Payjp.api_key = Rails.application.secrets.payjp_secret_key
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     # トークンを受け取る
     token_id = params[:payjpToken]
     # payjpに顧客登録して顧客IDをもらう
