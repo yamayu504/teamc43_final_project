@@ -27,7 +27,7 @@
           / 後ほど、クレジットカード分岐追加
         - if current_user.cities.present?
           .product__buy__container__main__item__button
-            = link_to "購入する", product_buys_path(product_id: @product.id), class:"btn-default"
+            = link_to "購入する", product_buys_path(product_id: @product.id), method: :patch, class: "btn-default"
         - else
           .product__buy__container__main__item__button
             .product__buy__container__main__item__alert
