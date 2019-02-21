@@ -1,4 +1,8 @@
 $(document).on('turbolinks:load', function(){
+    // product_idを取り込む
+  var before_li = $('.product__sell__form__images__container__preview li').length;
+  $('.product__sell__form__images__container__guide div').removeClass();
+  $('.product__sell__form__images__container__guide div').addClass('have__image--' + before_li).trigger("create");
   //image_uploader
   function buildImage(loadedImageUri){
     var html =
@@ -15,70 +19,133 @@ $(document).on('turbolinks:load', function(){
     </li>`
     return html
   };
+  var url = location.href
+  // editように初期値でliが存在する場合のclassを付与
+  var files_array = [];
+  // ドラッグ&ドロップ
   $('.product__sell__form__images__container__guide').on('dragover',function(e){
       e.preventDefault();
   });
-  var files_array = [];
   $('.product__sell__form__images__container__guide').on('drop',function(event){
-      event.preventDefault();
-      // e.dataTransfer = e.originalEvent.dataTransfer;
-      files = event.originalEvent.dataTransfer.files;
-        var limit    = 4 - files_array.length;
-        var total_li = files_array.length + files.length;
-        if (files.length > limit){
-          $("ファイルの数が多すぎます。").appendTo(".product__sell__form__images__container__guide__error");
-        }else{
-          $(".product__sell__form__images__container__guide__error").children().remove();
-          // ファイルフォームの追加
-          for (var i=0; i<files.length; i++) {
-            files_array.push(files[i])
-            var fileReader = new FileReader();
-            fileReader.onload = function( event ) {
-              var loadedImageUri = event.target.result;
-              $(buildImage(loadedImageUri,)).appendTo(".product__sell__form__images__container__preview ul").trigger("create");
-            };
-            fileReader.readAsDataURL(files[i]);
-          }
-        }
-        $('.product__sell__form__images__container__guide div').removeClass();
-        $('.product__sell__form__images__container__guide div').addClass('have__image--' + total_li).trigger("create");
-        $(document).on('click','.product__sell__form__images__container__preview a', function(){
-            var index = $(".product__sell__form__images__container__preview a").index(this);
-            files_array.splice(index, 1);
-            $(this).parent().parent().parent().remove();
-        $('.product__sell__form__images__container__guide div').removeClass();
-        $('.product__sell__form__images__container__guide div').addClass('have__image--' + files_array.length).trigger("create");
-        });
-      // submit時の値の受け渡し。
-     $(document).on('submit','#new_product', function(e){
-      e.preventDefault();
-      var formData = new FormData($(this).get(0));
-      var i = 0
-      files_array.forEach(function(p_file){
-       formData.append("p_image[p_images][]" , p_file)
-       i = i + 1
-      });
+    event.preventDefault();
+    // e.dataTransfer = e.originalEvent.dataTransfer;
+    var count_li = $('.product__sell__form__images__container__preview li').length;
+    files = event.originalEvent.dataTransfer.files;
+    var limit    = 4 - count_li;
+    var total_li = count_li + files.length;
+    if (files.length > limit){
+      $("ファイルの数が多すぎます。").appendTo(".product__sell__form__images__container__guide__error");
+    }else{
+      $(".product__sell__form__images__container__guide__error").children().remove();
+      // ファイルフォームの追加
+      for (var i=0; i<files.length; i++) {
+        files_array.push(files[i])
+        var fileReader = new FileReader();
+        fileReader.onload = function( event ) {
+          var loadedImageUri = event.target.result;
+          $(buildImage(loadedImageUri,)).appendTo(".product__sell__form__images__container__preview ul").trigger("create");
+        };
+        fileReader.readAsDataURL(files[i]);
+      }
+    }
+    $('.product__sell__form__images__container__guide div').removeClass();
+    $('.product__sell__form__images__container__guide div').addClass('have__image--' + total_li).trigger("create");
+  });
+
+  //削除の記述
+  $(document).on('click','.product__sell__form__images__container__preview a', function(){
+    var index = $(".product__sell__form__images__container__preview a").index(this);
+    // 既存のimagesか、新規のimagesかをbefore_liとindexで区別する。
+    if (before_li >= (index + 1)){
+      // paramsから持ってきた値を削除する。
+      input = (index + 1)
+      var image_id = $(this).parent().parent().parent().attr("data-id");
       $.ajax({
-        url:         '/products',
-        type:        "POST",
-        data:        formData,
+        url:         "/p_images/" + image_id,
+        type:        "DELETE",
+        data:        input,
         contentType: false,
         processData: false,
         dataType:   'json',
-        // 送る前に、disabledを追加する
       })
       .done(function(data){
-        // 正しく、遷移した場合の処理
-        window.location.href = "/";
-        alert('出品に成功しました！');
+       before_li = before_li - 1
       })
-      // failは通信処理ができなかった時の処理
       .fail(function(XMLHttpRequest, textStatus, errorThrown){
-        $('.product__sell__form__title div').remove();
-        $('<div class="flash flash__alert">入力に不備があります。 再度入力してください。</div>').appendTo(".product__sell__form__title").trigger("create");
-        $('.sell__product__done').prop('disabled', false);
-        $('html,body').animate({scrollTop: 0}, 500, 'swing');
       });
+    }else{
+
+      files_array.splice((index - before_li), 1);
+    };
+    $(this).parent().parent().parent().remove();
+    var after_li = $('.product__sell__form__images__container__preview li').length;
+    $('.product__sell__form__images__container__guide div').removeClass();
+    $('.product__sell__form__images__container__guide div').addClass('have__image--' + after_li).trigger("create");
+  });
+
+  // newの際の分岐
+  $('#new_product').on('submit', function(e){
+    e.preventDefault();
+    var formData = new FormData($(this).get(0));
+    var i = 0
+    files_array.forEach(function(p_file){
+     formData.append("p_image[p_images][]" , p_file)
+     i = i + 1
+    });
+    $.ajax({
+      url:         '/products',
+      type:        "POST",
+      data:        formData,
+      contentType: false,
+      processData: false,
+      dataType:   'json',
+      // 送る前に、disabledを追加する
+    })
+    .done(function(data){
+      // 正しく、遷移した場合の処理
+      alert('出品に成功しました！');
+      window.location.href = "/";
+    })
+    // failは通信処理ができなかった時の処理
+    .fail(function(XMLHttpRequest, textStatus, errorThrown){
+      $('.product__sell__form__title div').remove();
+      $('<div class="flash flash__alert">入力に不備があります。 再度入力してください。</div>').appendTo(".product__sell__form__title").trigger("create");
+      $('.sell__product__done').prop('disabled', false);
+      $('html,body').animate({scrollTop: 0}, 500, 'swing');
+    });
+  });
+  // updateの時の動き。
+  $('#new_product__edit').on('submit', function(e){
+    e.preventDefault();
+    var formData = new FormData($(this).get(0));
+    var i = 0
+    files_array.forEach(function(p_file){
+     formData.append("p_image[p_images][]" , p_file)
+     i = i + 1
+    });
+     var url = location.href
+     var product_id = url.match(/products\/(\d+)\/edit/)
+     var edit_url = "/products/" + product_id[1]
+    $.ajax({
+      url:         edit_url,
+      type:        "PATCH",
+      data:        formData,
+      contentType: false,
+      processData: false,
+      dataType:   'json',
+      // 送る前に、disabledを追加する
+    })
+    .done(function(data){
+      // 正しく、遷移した場合の処理
+      window.location.href = "/";
+      alert('商品の更新に成功しました！');
+    })
+    // failは通信処理ができなかった時の処理
+    .fail(function(XMLHttpRequest, textStatus, errorThrown){
+      $('.product__sell__form__title div').remove();
+      $('<div class="flash flash__alert">入力に不備があります。 再度入力してください。</div>').appendTo(".product__sell__form__title").trigger("create");
+      $('.sell__product__done').prop('disabled', false);
+      $('html,body').animate({scrollTop: 0}, 500, 'swing');
     });
   });
 

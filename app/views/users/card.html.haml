@@ -1,0 +1,22 @@
+.card-header
+  = render "products/product_header"
+  - breadcrumb :users
+  = render "layouts/bread_with_gretel"
+- if flash[:notice]
+  %p= flash[:notice]
+
+.card-wrapper.clreafix
+  .card-main
+    %h2.card-main__header 支払い方法
+    .card-main__container
+      .card-main__container__upper
+        .card-main__container__upper--title
+          %h3 クレジットカード一覧
+      .card-main__container__main
+        .card-main__container__main__btn
+          = link_to 'クレジットカードを追加する',{ controller: :users, action: :paycreate }, class: "btn-default card-main__container__main__btn--red"
+      .card-main__container__footer
+        = link_to "#",class: "card-main__container__footer--link" do
+          支払い方法について
+  .card-side
+    = render 'users/mypage-nav'

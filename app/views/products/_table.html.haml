@@ -8,27 +8,29 @@
     %tr
       %th カテゴリー
       %td
-        = link_to "レディース", "#"
+        = link_to product.category.name, "#"
         .product__detail__container__main__imgtable__category_children
           = link_to "#" do
             %span.arrow
               %i.fas.fa-angle-left
-            トップス
+            = product.category.name
         .product__detail__container__main__imgtable__category_grandson
           = link_to "#" do
             %span.arrow
               %i.fas.fa-angle-left
-            Tシャツカットソー
+            = product.category.name
     %tr
       %th ブランド
       %td
         / = product.brand.name ブランド実装時に実装
         = link_to "#" do
-          ヒューマンメード
+          -if product.brand.present?
+            = product.brand.name
     %tr
       %th 商品のサイズ
       / サイズはサーバ側が決定次第実装
-      %td M
+      %td
+        = Size.find( product.size).size
     %tr
       %th 商品の状態
       %td
@@ -45,11 +47,11 @@
       %th 配送元地域
       %td
         = link_to "#" do
-          = product.shipping_method
+          = t "enums.product.area.#{product.area}"
     %tr
       %th 配送日の目安
       %td
-        = product.shipping_method
+        = product.shipping_date
 
 
 

@@ -1,0 +1,25 @@
+- products.each do |product|
+  %li
+    = link_to "/users/#{current_user.id}/listings/#{product.id}" do
+      = image_tag product.p_images.first.image.url
+      .mypage-main__listings__body__text
+        .mypage-main__listings__body__text__title
+          = product.name
+        .mypage-main__listings__body__text__links
+          %i.far.fa-heart
+          %span
+            = "20#{}"
+          %i.far.fa-comment-alt
+          %span
+            = "10#{}"
+          - if product.for_sale == 1 && product.deal == 1
+            %span.form__arbitary.mypage-main__listings__body__text__links__label
+              = "売却済み#{}"
+          - elsif product.for_sale == 0
+            %span.form__require.mypage-main__listings__body__text__links__label
+              = "公開停止中#{}"
+          - elsif product.for_sale == 1 && product.deal == 0
+            %span.form__blue.mypage-main__listings__body__text__links__label
+              = "公開中#{}"
+      %i.fas.fa-chevron-right
+

@@ -16,7 +16,7 @@ FactoryGirl.define do
     deal                 0
     seller_id            1
     buyer_id             nil
-    association :seller, factory: :user
+    association :seller, factory: :user, strategy: :build
     association :category, factory: :category
   end
 end

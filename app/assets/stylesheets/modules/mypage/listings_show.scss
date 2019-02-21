@@ -1,0 +1,43 @@
+// 主なSCSSは、product_detail.scssを転用してます。
+.product__detail__container__statuschange{
+  padding: 24px 40px 40px;
+  background-color: white;
+  text-align: center;
+  margin:20px 0;
+  a{
+    vertical-align: middle;
+    width:604px;
+    height:48px;
+    margin:16px 0;
+    background: #ea352d;
+    border: 1px solid #ea352d;
+    color: #fff;
+    text-align: center;
+    display: block;
+    width: 100%;
+    line-height: 48px;
+    font-size: 14px;
+  }
+  a.statuschange__delete{
+    background-color: rgb(170,170,170);
+    border: 1px solid rgb(170,170,170);
+  }
+  a.statuschange__close{
+  background-color: rgb(170,170,170);
+  border: 1px solid rgb(170,170,170);
+  }
+  &__completed{
+    vertical-align: middle;
+    width:604px;
+    height:48px;
+    margin:16px 0;
+    background-color: rgb(170,170,170);;
+    border: 1px solid rgb(170,170,170);
+    color: #fff;
+    text-align: center;
+    display: block;
+    width: 100%;
+    line-height: 48px;
+    font-size: 14px;
+  }
+}

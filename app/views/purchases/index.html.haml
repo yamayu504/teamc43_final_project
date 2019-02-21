@@ -1,0 +1,22 @@
+.mypage-header
+  = render "products/sell_button"
+  = render "products/product_header"
+  - breadcrumb :purchases, current_user.id
+  = render "layouts/bread_with_gretel"
+.mypage-wrapper
+  / ここから山中加筆
+  .mypage-main__listings
+    .mypage-main__listings__top
+      購入した商品
+    .mypage-main__listings__select
+      %ul
+        %li.purchase__select.active__tab
+          = link_to " 取引中", user_purchases_path(current_user.id)
+        %li.purchase__select
+          = link_to "過去の取引", user_purchaseds_path(current_user.id)
+    .mypage-main__listings__body
+      %ul
+        = render "listings/listing_products", products: @products
+  .mypage-side
+    = render "users/mypage-nav"
+= render "products/product_footer"

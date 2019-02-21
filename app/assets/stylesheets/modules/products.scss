@@ -47,6 +47,38 @@ span#sell__botton{
   background-color: white;
   width: 100%;
 }
+a#sign_in_button{
+  height:34px;
+  padding:0 10px;
+  border-radius: 7px;
+  background: #ea352d;
+  border: 1px solid #ea352d;
+  color: #fff;
+  text-align: center;
+  &:hover{
+  background: #ea352d;
+  color: #fff;
+  }
+}
+a#sign_up_button{
+  height:34px;
+  padding:0 10px;
+  border-radius: 7px;
+  border: 1px solid $color-bluelink;
+  color: $color-bluelink;
+  text-align: center;
+  line-height: 34px;
+  vertical-align: middle;
+  &:hover{
+  border: 1px solid $color-bluelink;
+  color: white;
+  background-color:  $color-bluelink;
+  -webkit-transition: 0.3s ease-in-out;
+  -moz-transition: 0.3s ease-in-out;
+  -o-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  }
+}
 .product{
   &__header{
     background-color:white;
@@ -148,6 +180,9 @@ span#sell__botton{
               display:inline-block;
               line-height:46px;
               border-radius: 50%;
+              width:32px;
+              height:32px;
+
             }
             span.nav{
               font-size:18px;
@@ -191,7 +226,7 @@ span#sell__botton{
       }
     a.product__category__name:hover{
       color:$color-bluelink-hover;
-      border-bottom:solid 0.1em $background-gray-hover;
+      border-bottom:solid 0.1em $color-bluelink-hover;
     }
     .pickedup{
       padding:40px 0;
@@ -210,10 +245,13 @@ span#sell__botton{
           display:inline-block;
           margin:0 20px 20px 0;
           float:left;
-          img.product__container__pickedcategory__list__content__body__img{
-            width:213px;
-            height:220px;
-            object-fit: cover;
+          &__img{
+            position: relative;
+            img{
+              width:213px;
+              height:220px;
+              object-fit: cover;
+            }
           }
           &__body{
             width:181px;
@@ -280,7 +318,7 @@ span#sell__botton{
         a:hover{
           color: $color-bluelink-hover;
           border-bottom:solid 0.1em $color-bluelink-hover;
-    }
+        }
       }
     }
   }

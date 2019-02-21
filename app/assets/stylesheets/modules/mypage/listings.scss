@@ -1,0 +1,116 @@
+.mypage-main__listings{
+  float: right;
+  width: 700px;
+  &__top{
+    text-align: left;
+    padding:0 16px;
+    background: #fafafa;
+    font-size: 16px;
+    line-height: 72px;
+    font-weight: bold;
+  }
+  &__select{
+    ul{
+      height:74px;
+      border: 0;
+      background: #eee;
+      font-size: 0;
+      @include clearfix();
+      li{
+        width:33.3%;
+        border-top: 2px solid #fafafa;
+        text-align: center;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 72px;
+        background: rgba(238, 238, 238, 1);
+        display: block;
+        float: left;
+        transition: all 0.2s ease;
+        display: inline-block;
+        a{
+          display: block;
+          &:hover{
+            opacity: 0.5;
+          }
+        }
+      }
+      li.active__tab{
+        border-top: 2px solid #ea352d;
+        background-color: white;
+      }
+      li.purchase__select{
+        width:50%;
+      }
+    }
+  }
+  &__body{
+    width:100%;
+    &__text{
+      margin: 0 40px 0 68px;
+      position:relative;
+      @include clearfix();
+      &__title{
+        float:left;
+        width:100%;
+        margin-bottom:8px;
+      }
+      &__links{
+        position:absolute;
+        bottom:0;
+        i{
+          position:relative;
+          display: inline-block;
+          float:left;
+          vertical-align: middle;
+          display: inline-block;
+          line-height:20px;
+          color:rgb(204,204,204);
+        }
+      }
+    }
+    ul{
+      background-color: white;
+      li{
+        border-bottom: 1px solid #eee;
+        @include clearfix();
+        a{
+          display: block;
+          padding: 16px;
+          position: relative;
+          color: #333;
+          &:hover{
+            background: #fafafa;
+          }
+          img{
+            width:48px;
+            height:48px;
+            float:left;
+            object-fit: contain;
+
+          }
+          i.fas.fa-chevron-right{
+            position: absolute;
+            vertical-align: middle;
+            display: inline-block;
+            line-height:20px;
+            color:rgb(204,204,204);
+            top:30px;
+            right:20px;
+          }
+          span{
+            float:left;
+            margin:0 5px;
+            vertical-align: middle;
+            display: inline-block;
+            line-height:20px;
+            color:#888
+          }
+          span.mypage-main__listings__body__text__links__label{
+            color:white;
+          }
+        }
+      }
+    }
+  }
+}

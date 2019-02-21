@@ -1,0 +1,33 @@
+.mypage-main__listings__purchase__select{
+  ul{
+    height:74px;
+    border: 0;
+    background: #eee;
+    font-size: 0;
+    @include clearfix();
+    li{
+      width:50%;
+      border-top: 2px solid #fafafa;
+      text-align: center;
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 72px;
+      background: rgba(238, 238, 238, 1);
+      display: block;
+      float: left;
+      transition: all 0.2s ease;
+      display: inline-block;
+      a{
+        display: block;
+        &:hover{
+          opacity: 0.5;
+        }
+      }
+    }
+    li.active__tab{
+      border-top: 2px solid #ea352d;
+      background-color: white;
+    }
+  }
+}
+

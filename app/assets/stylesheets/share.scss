@@ -65,6 +65,15 @@
   font-size: 12px;
   vertical-align: top;
 }
+.form__blue{
+  padding:2px 4px;
+  margin-right:8px;
+  background-color:$color-bluelink;
+  border-radius: 2px;
+  color: white;
+  font-size: 12px;
+  vertical-align: top;
+}
 .input__default {
     height: 28px;
     padding: 10px 16px 8px;
@@ -111,3 +120,63 @@
     cursor: pointer;
     text-align: center;
 }
+.triangle{
+  position:absolute;
+  z-index: 10;
+  left:0;
+  top:0;
+  &__item{
+  /*2色パターン*/
+  border-top: 40px solid red;
+  border-right: 40px solid transparent;
+  border-bottom: 40px solid transparent;
+  border-left: 40px solid red;
+  width: 0px;
+  height: 0px;
+  position:absolute;
+  z-index: 10;
+  }
+  p{
+    left:0;
+    top:15px;
+    color: white;
+    font-weight: bold;
+    width:50px;
+    position:absolute;
+    transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    z-index: 10;
+  }
+
+}
+.triangle--red{
+  .triangle__item{
+  border-left: 40px solid red;
+  border-top: 40px solid red;
+  }
+  p{
+    left:0;
+    top:17px;
+    color: white;
+    font-weight: bold;
+    font-size:18px;
+    width:50px;
+  }
+}
+.triangle--gray{
+  .triangle__item{
+  border-left: 41px solid gray;
+  border-top: 41px solid gray;
+  }
+  p{
+    left:0;
+    top:20px;
+    color: white;
+    font-weight: bold;
+    font-size:10px;
+    width:50px;
+  }
+}
+
+
