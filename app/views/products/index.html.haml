@@ -1,8 +1,7 @@
 = render "products/sell_button"
 = render "products/product_header"
 / kikawa仮置き
-- if flash[:notice]
-  %p= flash[:notice]
+= render "layouts/notifications"
 .product__slider
   #slider
     %div.slider__image

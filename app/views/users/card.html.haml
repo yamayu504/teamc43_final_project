@@ -2,8 +2,8 @@
   = render "products/product_header"
   - breadcrumb :users
   = render "layouts/bread_with_gretel"
-- if flash[:notice]
-  %p= flash[:notice]
+
+= render "layouts/notifications"
 
 .card-wrapper.clreafix
   .card-main
