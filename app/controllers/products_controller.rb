@@ -70,7 +70,7 @@ class ProductsController < ApplicationController
     @brands     = Brand.all
   end
   def destroy
-    @product.destroy if product.seller.id == current_user.id
+    @product.destroy if @product.seller.id == current_user.id
     redirect_to user_listings_path(current_user), notice: "商品が削除されました。"
   end
 
