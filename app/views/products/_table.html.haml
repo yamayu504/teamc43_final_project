@@ -24,7 +24,8 @@
       %td
         / = product.brand.name ブランド実装時に実装
         = link_to "#" do
-          = product.brand.name
+          -if product.brand.present?
+            = product.brand.name
     %tr
       %th 商品のサイズ
       / サイズはサーバ側が決定次第実装
