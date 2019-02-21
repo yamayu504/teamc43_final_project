@@ -1,0 +1,14 @@
+.main
+  .main-container
+    .main-head 新規会員登録
+    .main-inner
+      .main-content
+        .btn-wrapper
+          %input.btn-default.to-step1{"data-disable-with": "メールアドレスで登録",name: "commit", type: "text", value: "メールアドレスで登録", id: "btn-mail"}
+          %i.fa.fa-envelope
+        = link_to "#", class: "btn-default", id: "btn-facebook"do
+          %i.fab.fa-facebook-square
+          Facebookで登録
+        = link_to "#", class: "btn-default", id: "btn-google"do
+          %i.fab.fa-google-plus-g
+          Googleで登録

@@ -1,0 +1,16 @@
+.main.sms
+  .main-container
+    .main-head--slim 電話番号の確認
+    .member-info-inner
+      .member-info-content
+        .member-info-content__form.first-child
+          = label :none, "携帯電話の番号", class: "member-info-content__form__label"
+          = text_field :none, :none, class: 'member-info-content__form__input', placeholder: "携帯電話の番号を入力"
+        .member-info-content__form__text 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+        %input.member-info-content__btn.to-step3{"data-disable-with": "SMSを送信する",name: "commit", type: "text", value: "SMSを送信する"}
+        .member-info-content__form__text ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+        .member-info-content__text-right
+          %P.member-info-content__text-right__paragraph
+            = link_to "#",class: "member-info-content__text-right__paragraph__link" do
+              電話番号の確認が必要な理由
+              %i.member-info-content__text-right__paragraph__bottom.fa.fa-angle-right

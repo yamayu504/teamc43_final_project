@@ -1,0 +1,37 @@
+.main.address
+  .main-container
+    .main-head 住所入力
+    .member-info-inner
+      .member-info-content
+        .member-info-content__form.first-child
+          = f.label :postal_code, "郵便番号", class: "member-info-content__form__label"
+          %span.member-info-content__form__require 必須
+          = f.text_field :postal_code, class: 'member-info-content__form__input', placeholder: "例）1234567"
+        .member-info-content__form
+          = f.label :prefecture, "都道府県", class: "member-info-content__form__label"
+          %span.member-info-content__form__require 必須
+          .member-info-content__form__wrap
+            = f.select :prefecture, User.prefectures.keys.map {|k| [I18n.t("enums.user.prefecture.#{k}"), k]}, {}, {class: "member-info-content__form__wrap__default"}
+            %i.member-info-content__form__wrap__bottom.fa.fa-angle-down
+        .member-info-content__form
+          = f.label :cities, "市区町村", class: "member-info-content__form__label"
+          %span.member-info-content__form__require 必須
+          = f.text_field :cities, class: 'member-info-content__form__input', placeholder: "例）横浜市緑区"
+        .member-info-content__form
+          = f.label :address, "番地", class: "member-info-content__form__label"
+          %span.member-info-content__form__require 必須
+          = f.text_field :address, class: 'member-info-content__form__input', placeholder: "例）青山1-1-1"
+        .member-info-content__form
+          = f.label :building_name, "建物名", class: "member-info-content__form__label"
+          %span.member-info-content__form__arbitrary 任意
+          = f.text_field :building_name, class: 'member-info-content__form__input', placeholder: "例）柳ビル103"
+        .member-info-content__form
+          = f.label :phone_number, "電話", class: "member-info-content__form__label"
+          %span.member-info-content__form__arbitrary 任意
+          = f.text_field :phone_number, class: 'member-info-content__form__input', placeholder: "例）09012345678"
+        %input.member-info-content__btn.to-step5{"data-disable-with": "次へ進む",name: "commit", type: "text", value: "次へ進む"}
+        .member-info-content__text-right
+          %P.member-info-content__text-right__paragraph
+            = link_to "#",class: "member-info-content__text-right__paragraph__link" do
+              本人情報の登録について
+              %i.member-info-content__text-right__paragraph__bottom.fa.fa-angle-right

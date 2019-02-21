@@ -1,0 +1,69 @@
+.main.member-info
+  .main-container
+    .main-head 新規会員登録
+    .member-info-inner
+      .member-info-content
+        .member-info-content__form.first-child
+          = f.label :nickname, "ニックネーム", class: "member-info-content__form__label"
+          %span.member-info-content__form__require 必須
+          = f.text_field :nickname, class: 'member-info-content__form__input', placeholder: "例）メルカリ太郎"
+        .member-info-content__form
+          = f.label :email, "メールアドレス", class: "member-info-content__form__label"
+          %span.member-info-content__form__require 必須
+          = f.email_field :email, autocomplete: "email", class: 'member-info-content__form__input', placeholder: "PC・携帯どちらでも可"
+        .member-info-content__form
+          = f.label :password, "パスワード", class: "member-info-content__form__label"
+          %span.member-info-content__form__require 必須
+          = f.password_field :password, autocomplete: "new-password", class: 'member-info-content__form__input', placeholder: "6文字以上"
+        .member-info-content__form
+          = f.label :password_confirmation, "パスワード（確認）", class: "member-info-content__form__label"
+          %span.member-info-content__form__require 必須
+          = f.password_field :password_confirmation, autocomplete: "new-password", class: 'member-info-content__form__input', placeholder: "6文字以上"
+        .member-info-content__form
+          .member-info-content__form__sub-head 本人確認
+          .member-info-content__form__text 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+        .member-info-content__form
+          = f.label :first_name, "姓（全角）", class: "member-info-content__form__label"
+          %span.member-info-content__form__require 必須
+          = f.text_field :first_name, class: 'member-info-content__form__input', placeholder: "例）山田"
+        .member-info-content__form
+          = f.label :last_name, "名（全角）", class: "member-info-content__form__label"
+          %span.member-info-content__form__require 必須
+          = f.text_field :last_name, class: 'member-info-content__form__input', placeholder: "例）彩"
+        .member-info-content__form
+          = f.label :first_name_kana, "姓カナ（全角）", class: "member-info-content__form__label"
+          %span.member-info-content__form__require 必須
+          = f.text_field :first_name_kana, class: 'member-info-content__form__input', placeholder: "例）ヤマダ"
+        .member-info-content__form
+          = f.label :last_name_kana, "名カナ（全角）", class: "member-info-content__form__label"
+          %span.member-info-content__form__require 必須
+          = f.text_field :last_name_kana, class: 'member-info-content__form__input', placeholder: "例）アヤ"
+        .member-info-content__form
+          = f.label :birthday, "生年月日", class: "member-info-content__form__label"
+          %span.member-info-content__form__require 必須
+          .member-info-content__form__select
+            = raw sprintf(f.date_select(:birthday, {use_month_numbers: true, start_year: 1900, end_year: (Time.now.year), prompt:"--",date_separator: '%s'}, {class: "member-info-content__form__select__tab"}), '&nbsp;&nbsp;年', '&nbsp;&nbsp;月') + '&nbsp;&nbsp;日'
+            %i.member-info-content__form__select__bottom.first.fa.fa-angle-down
+            %i.member-info-content__form__select__bottom.second.fa.fa-angle-down
+            %i.member-info-content__form__select__bottom.third.fa.fa-angle-down
+        %p.member-info-content__text ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+      .member-info-content
+        .member-info-content__form
+          %p.member-info-content__form__paragraph
+            「次へ進む」のボタンを押すことにより、
+            = link_to "#",class: "member-info-content__form__paragraph__link" do
+              利用規約
+            に同意したものとみなします
+        %input.member-info-content__btn.to-step2{"data-disable-with": "次へ進む",name: "commit", type: "text", value: "次へ進む"}
+        .member-info-content__text-right
+          %P.member-info-content__text-right__paragraph
+            = link_to "#",class: "member-info-content__text-right__paragraph__link" do
+              本人情報の登録について
+              %i.member-info-content__text-right__paragraph__bottom.fa.fa-angle-right
+
+
+
+
+
+
+
