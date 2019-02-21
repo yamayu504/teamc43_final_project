@@ -2,7 +2,7 @@ class BuysController < ApplicationController
   before_action :sign_in_confirmation
   def index
     @product = Product.find(params[:product_id])
-    if @product.seller_id == current_user.id
+    unless @product.seller_id == current_user.id
     else
       redirect_to root_path
     end
