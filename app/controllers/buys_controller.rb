@@ -22,10 +22,8 @@ class BuysController < ApplicationController
       customer: current_user.customer_id,
       currency: 'jpy',
     )
-
       flash[:notice] = "商品を購入しました"
       redirect_to root_path
-
     end
   end
 
