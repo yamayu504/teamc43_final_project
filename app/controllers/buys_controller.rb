@@ -3,8 +3,9 @@ class BuysController < ApplicationController
   def index
     @product = Product.find(params[:product_id])
     if @product.seller_id == current_user.id
-      redirect_to root_path
     else
+      redirect_to root_path
+    end
   end
   def update
     @product = Product.find(params[:product_id])
