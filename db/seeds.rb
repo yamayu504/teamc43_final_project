@@ -20,6 +20,8 @@ user = User.new(
   profile: '四次元から来ましたマヨラー星人、19歳、まいやんこと、白石麻衣です'
   )
 user.save!
+end
+
 user = User.new(
   nickname: 'なな',
   email: "nana_komatsu@email.com",
@@ -39,7 +41,6 @@ user = User.new(
   profile: '小松奈々です'
   )
 user.save!
-end
 
 unless Brand.exists?
   CSV.foreach('db/csv/brands.csv') do |row|
