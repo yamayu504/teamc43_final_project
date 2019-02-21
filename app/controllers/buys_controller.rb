@@ -10,8 +10,7 @@ class BuysController < ApplicationController
   def update
     @product = Product.find(params[:product_id])
     if @product.seller_id == current_user.id
-      flash[:notice] = "ご自身が出品した商品は買えません"
-      redirect_to root_path
+      redirect_to root_path, notice: "ご自身が出品した商品は買えません"
     else
       @product.update(deal: 1, buyer_id: current_user.id)
       @product.save
@@ -22,8 +21,7 @@ class BuysController < ApplicationController
       customer: current_user.customer_id,
       currency: 'jpy',
     )
-      flash[:notice] = "商品を購入しました"
-      redirect_to root_path
+      redirect_to root_path, notice: "商品を購入しました"
     end
   end
 
