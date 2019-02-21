@@ -1,0 +1,87 @@
+.registrations{
+  &__header{
+  text-align: center;
+  height: 128px;
+    &__upper{
+    display:inline-block;
+    margin: 40px 0 0;
+      a{
+        display: inline-block;
+        width: 185px;
+        height: 49px;
+        line-height: 49px;
+        margin: 0 8px 0 0;
+        img{
+          width: 185px;
+          height: 49px;
+        }
+      }
+    }
+    &__bar{
+      padding: 40px 0 0 44px;
+      border: 0;
+      display: inline-block;
+      vertical-align: top;
+      font-size: 0;
+      text-align: center;
+      ol{
+        margin: 0;
+        @include clearfix;
+        li{
+          margin: 0 40px 0 0;
+          min-width: 60px;
+          position: relative;
+          z-index: 1;
+          display: inline-block;
+          font-size: 12px;
+          &.active{
+            font-weight: 600;
+            color: #ea352d;
+          }
+        }
+      }
+      &__status{
+        width: 12px;
+        height: 12px;
+        margin: 8px auto 0;
+        background: #ccc;
+        border-radius: 50%;
+        &.active{
+          background: #ea352d;
+        }
+        &.active-after{
+          &:after{
+            background-color: #ea352d;
+          }
+        }
+        &.active-before{
+          &:before{
+            background-color: #ea352d;
+          }
+        }
+        &:after, &:before{
+          position: absolute;
+          bottom: 5px;
+          z-index: -1;
+          display: block;
+          content: '';
+          width: 100%;
+          height: 2px;
+          background: #ccc;
+        }
+        &:after{
+          left: 50%;
+        }
+        &:before{
+          right: 50%;
+        }
+        &.first:before{
+          content: none;
+        }
+        &.last:after{
+          content: none;
+        }
+      }
+    }
+  }
+}

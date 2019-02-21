@@ -1,0 +1,37 @@
+.registrations-footer{
+    z-index: 1;
+    height: 220px;
+    padding: 40px 0;
+    text-align: center;
+    width: 456px;
+    margin: 60px auto 0;
+  ul{
+    @include clearfix;
+    li{
+      display: inline-block;
+      margin: 0;
+      &:last-child{
+        a{
+          padding: 0;
+        }
+      }
+    }
+  }
+  a{
+    display: block;
+    color: #333;
+    font-size: 12px;
+    padding:0 16px 0 0;
+  }
+  &__logo{
+    width: 80px;
+    height: 65px;
+    margin: 40px auto 0;
+  }
+  p{
+    margin: 8px 0 0;
+    small{
+      font-size: 12px;
+    }
+  }
+}
