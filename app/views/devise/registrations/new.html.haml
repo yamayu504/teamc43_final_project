@@ -1,6 +1,5 @@
 .registrations__wrapper
   = form_for resource, as: resource_name, url: registration_path(resource_name) do |f|
-    = devise_error_messages!
     .registrations__wrapper__step0
       = render "registrations-header"
       = render "registrations-main"
