@@ -194,12 +194,12 @@ a#sign_up_button{
   }
   &__slider{
     background-color:rgb(244,244,244);
-    height:450px;
+    height:auto;
     width:100%;
     overflow-x: hidden;
       #slider{
-        height:390px;
-        img.slider__image{
+        height:auto;
+        img{
           width:100%;
         }
       }
